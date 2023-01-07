@@ -5,7 +5,7 @@ LAMPAC="/home/lampac"
 
 #Termux встановлення пакетів
 pkg install -y wget tmux proot-distro
-#Завантаження info
+#Завантаження_info
 wget https://github.com/bbk14/Termux-Debian-Lampac-Jackett/blob/main/information.sh -O information.sh
 chmod 755 information.sh
 #Встановлення автозавантаження в Termux: Lampac Jackett info
