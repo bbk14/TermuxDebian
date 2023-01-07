@@ -58,4 +58,4 @@ echo -e "${RED}про конфігурацію на сайті розробни�
 echo -e " ${GREEN}https://github.com/immisterio/Lampac"
 
 echo ""
-echo "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
+echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
