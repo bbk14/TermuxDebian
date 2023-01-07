@@ -12,7 +12,7 @@ chmod 755 information.sh
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
 echo "tmux detach" >> ~/.bashrc
-echo "./information.sh" >> ~/.bashrc
+echo "bash information.sh" >> ~/.bashrc
 source ~/.bashrc
 
 proot-distro install debian
@@ -22,17 +22,17 @@ apt-get update && apt-get install -y wget libicu67
 
 wget https://dot.net/v1/dotnet-install.sh
 chmod 755 dotnet-install.sh
-./dotnet-install.sh --runtime aspnetcore --channel 6.0 --install-dir /usr/share/dotnet
+bash dotnet-install.sh --runtime aspnetcore --channel 6.0 --install-dir /usr/share/dotnet
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 
-wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/cron.sh -O cron.sh
+wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/cron.sh
 chmod 755 cron.sh
 
 mkdir $DEST -p && cd $DEST
 wget https://github.com/immisterio/Lampac/releases/download/lam33/publish.zip
 unzip -o publish.zip
 rm -f publish.zip
-wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/update.sh -O update.sh
+wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/update.sh
 chmod 755 update.sh
 cp example.conf init.conf
 echo '33' > vers.txt
