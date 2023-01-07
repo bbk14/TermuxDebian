@@ -102,3 +102,4 @@ exit
 echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
 exit
+exit
