@@ -8,7 +8,7 @@ echo ""
 echo -e "${RED}*****### Додатково ###*****"
 
 echo -e "${GREEN}Lampac та Jackett працюють у фоні"
-echo -e "${RED}Завантажена сесія info !!!"
+echo -e "${RED}Завантажена сесія Info !!!"
 
 echo ""
 
@@ -30,7 +30,7 @@ echo -e " ${YELLOW}tmux attach -t Jackett"
 echo ""
 
 echo -e "${BLUE}підключитись до сесії info:"
-echo -e " ${YELLOW}tmux attach -t info"
+echo -e " ${YELLOW}tmux attach -t Info"
 
 echo ""
 
