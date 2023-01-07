@@ -2,12 +2,8 @@
 BLUE='\033[1;36m'
 YELLOW='\033[1;33m'
 LAMPAC="/home/lampac"
-echo '#!/bin/bash
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-BLUE='\033[1;36m'
-YELLOW='\033[1;33m'
 curl -s https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/info.sh
+chmod 755 info.sh
 pkg install -y tmux proot-distro
 echo "bash info.sh"" >> ~/.bashrc
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
