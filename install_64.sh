@@ -5,7 +5,7 @@ LAMPAC="/home/lampac"
 
 pkg install -y wget tmux proot-distro
 
-curl -s https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/information.sh -O information.sh
+wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/information.sh -O information.sh
 chmod 755 information.sh
 
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
@@ -47,5 +47,4 @@ rm Jackett.Binaries.LinuxARM64.tar.gz
 exit
 echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
-cd $HOME/bash information.sh
 exit
