@@ -45,5 +45,5 @@ rm Jackett.Binaries.LinuxARM64.tar.gz
 exit
 echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
-exit
 proot-distro login debian -- bash /root/information.sh
+exit
