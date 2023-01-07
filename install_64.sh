@@ -48,3 +48,4 @@ echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
 exit
 bash information.sh
+exit
