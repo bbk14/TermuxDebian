@@ -97,9 +97,5 @@ cd /home
 wget https://github.com/Jackett/Jackett/releases/latest/download/Jackett.Binaries.LinuxARM64.tar.gz
 tar -xvf Jackett.Binaries.LinuxARM64.tar.gz
 rm Jackett.Binaries.LinuxARM64.tar.gz
-
-exit
 echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
-exit
-exit
