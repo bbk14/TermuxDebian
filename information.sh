@@ -8,8 +8,12 @@ echo ""
 echo -e "${RED}*****### Додатково ###*****"
 
 echo -e "${GREEN}Lampac та Jackett працюють у фоні"
+echo -e "${RED}Завантажена сесія info !!!"
 
 echo ""
+
+echo -e "${BLUE}відключитись від підключеної сесії:"
+echo -e " ${YELLOW}Ctrl+B+D"
 
 echo -e "${BLUE}підключитись до сесії Lampac:"
 echo -e " ${YELLOW}tmux attach -t Lampac"
@@ -18,11 +22,15 @@ echo ""
 
 echo -e "${BLUE}підключитись до сесії Jackett:"
 echo -e " ${YELLOW}tmux attach -t Jackett"
+echo ""
+
+echo -e "${BLUE}підключитись до сесії Jackett:"
+echo -e " ${YELLOW}tmux attach -t Jackett"
 
 echo ""
 
-echo -e "${BLUE}відключитись від підключеної сесії:"
-echo -e " ${YELLOW}Ctrl+B+D"
+echo -e "${BLUE}підключитись до сесії info:"
+echo -e " ${YELLOW}tmux attach -t info"
 
 echo ""
 
