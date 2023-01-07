@@ -4,7 +4,9 @@ YELLOW='\033[1;33m'
 LAMPAC="/home/lampac"
 
 
-pkg install -y wget tmux proot-distro
+pkg install -y wget
+pkg install -y tmux
+pkg install -y proot-distro
 
 wget https://github.com/bbk14/Termux-Debian-Lampac-Jackett/blob/main/information.sh -O information.sh
 chmod 755 information.sh
