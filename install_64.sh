@@ -6,7 +6,7 @@ LAMPAC="/home/lampac"
 
 pkg install -y wget tmux proot-distro
 
-wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/information.sh
+curl -s https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/information.sh
 chmod 755 information.sh
 
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
