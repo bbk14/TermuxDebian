@@ -47,6 +47,5 @@ rm Jackett.Binaries.LinuxARM64.tar.gz
 exit
 echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
-exit
-bash information.sh
+cd $HOME/bash information.sh
 exit
