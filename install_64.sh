@@ -9,7 +9,7 @@ pkg install -y tmux proot-distro
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
 echo "tmux new-session -s Info -d "proot-distro login debian -- bash /root/information.sh"" >> ~/.bashrc
-echo "tmux attach -t info" >> ~/.bashrc
+echo "tmux attach -t Info" >> ~/.bashrc
 source ~/.bashrc
 
 proot-distro install debian
@@ -46,3 +46,4 @@ exit
 echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
 exit
+proot-distro login debian -- bash /root/information.sh
