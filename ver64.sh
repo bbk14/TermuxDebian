@@ -39,5 +39,5 @@ echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
 exit
 #
-curl -s https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/info.sh -O info.sh
+curl https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/info.sh --output info.sh
 chmod 755 info.sh
