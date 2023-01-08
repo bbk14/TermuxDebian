@@ -23,11 +23,6 @@ echo -e " ${YELLOW}tmux attach -t Jackett"
 
 echo ""
 
-echo -e "${BLUE}підключитись до сесії info:"
-echo -e " ${YELLOW}tmux attach -t Info"
-
-echo ""
-
 echo -e "${BLUE}зупинити всі сесії та програми:"
 echo -e " ${YELLOW}tmux kill-server"
 
