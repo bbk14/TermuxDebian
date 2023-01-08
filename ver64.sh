@@ -2,9 +2,6 @@
 BLUE='\033[1;36m'
 YELLOW='\033[1;33m'
 #
-wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/info.sh -O info.sh
-chmod 755 info.sh
-#
 echo "bash info.sh" >> ~/.bashrc
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
@@ -41,3 +38,6 @@ rm Jackett.Binaries.LinuxARM64.tar.gz
 echo "Готово !!!"
 echo -e "${BLUE}СЛАВА ${YELLOW}УКРАЇНІ"
 exit
+#
+curl -s https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/info.sh -O info.sh
+chmod 755 info.sh
