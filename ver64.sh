@@ -1,6 +1,4 @@
 #!/bin/bash
-BLUE='\033[1;36m'
-YELLOW='\033[1;33m'
 #
 proot-distro install debian
 proot-distro login debian
