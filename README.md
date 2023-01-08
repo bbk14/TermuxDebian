@@ -1,4 +1,5 @@
 # Termux Debian Lampac Jackett
+Android 32-bit & 64-bit
 
 1. F-Droid: https://f-droid.org/en/
 2. F-Droid: Termux
