@@ -16,13 +16,14 @@ chmod 755 lampac.sh
 cd /home
 mkdir lampac
 cd /home/lampac
-wget https://github.com/immisterio/Lampac/releases/download/lam33/publish.zip
+gitver=$(curl -s https://api.github.com/repos/immisterio/Lampac/releases/latest | grep tag_name | sed s/[^0-9]//g)
+echo -n $gitver > vers.txt
+wget https://github.com/immisterio/Lampac/releases/latest/download/publish.zip
 unzip -o publish.zip
 rm -f publish.zip
 wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/update.sh
 chmod 755 update.sh
 cp example.conf init.conf
-echo '33' > vers.txt
 #
 cd /home
 wget https://github.com/Jackett/Jackett/releases/latest/download/Jackett.Binaries.LinuxARM32.tar.gz
