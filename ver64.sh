@@ -5,7 +5,7 @@ YELLOW='\033[1;33m'
 echo "bash info.sh" >> ~/.bashrc
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
-echo "tmux detach" >> ~/.bashrc
+echo "tmux detach -t Jackett" >> ~/.bashrc
 source ~/.bashrc
 #
 proot-distro install debian
@@ -41,3 +41,4 @@ exit
 #
 curl https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/info.sh --output info.sh
 chmod 755 info.sh
+bash info.sh
