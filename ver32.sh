@@ -1,7 +1,4 @@
 #!/bin/bash
-GREEN='\033[1;32m'
-BLUE='\033[1;36m'
-YELLOW='\033[1;33m'
 #
 proot-distro install debian
 proot-distro login debian
@@ -42,4 +39,3 @@ echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cro
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
 echo "bash info.sh" >> ~/.bashrc
 source ~/.bashrc
-echo "${GREEN}Готово !!!"
