@@ -10,8 +10,8 @@ chmod 755 dotnet-install.sh
 bash dotnet-install.sh --runtime aspnetcore --channel 6.0 --install-dir /usr/share/dotnet
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 #
-wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/cron.sh
-chmod 755 cron.sh
+wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/lampac.sh
+chmod 755 lampac.sh
 #
 cd /home
 mkdir lampac
@@ -36,7 +36,7 @@ curl https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/k
 chmod 755 kill.sh
 #
 echo "bash kill.sh" >> ~/.bashrc
-echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/cron.sh"" >> ~/.bashrc
+echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac.sh"" >> ~/.bashrc
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
 echo "bash info.sh" >> ~/.bashrc
 source ~/.bashrc
