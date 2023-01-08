@@ -1,5 +1,6 @@
 #!/bin/bash
 #
+pkg install -y tmux proot-distro
 proot-distro install debian
 proot-distro login debian
 #
