@@ -6,9 +6,9 @@ NONE='\033[0m'
 
 PS3="Choose packages to install: "
 
-select packages in Lampac Jackett Torrserver 111OE Torrserver 118OE Torrserver latest Quit; do
+select packages in Lampac Jackett Torrserver_111OE Torrserver_118OE Torrserver_latest Quit; do
 case $packages in
-"Lampac")
+Lampac)
 if proot-distro login debian -- [ -d "/home/lampac" ]
 then
 echo "${GREEN}Lampac already installed${NONE}"
@@ -38,14 +38,14 @@ cp example.conf init.conf
 exit
 fi
 ;;
-"Torrserver 111OE")
+Torrserver_111OE)
 echo ""
 ;;
 
-"Torrserver 118OE")
+Torrserver_118OE)
 echo ""
 ;;
-"Torrserver latest")
+Torrserver_latest)
 if proot-distro login debian -- [ -d "/home/torrserver" ]
 then
 echo "${GREEN}Torrserver already installed${NONE}"
@@ -71,5 +71,5 @@ break
 echo "Invalid choose $REPLY"
 ;;
 esac
-done
 rm install.sh
+done
