@@ -9,12 +9,11 @@ PS3="Choose packages to install: "
 select packages in Lampac Jackett Torrserver_111OE Torrserver_118OE Torrserver_latest Quit; do
 case $packages in
 Lampac)
-if proot-distro login debian -- [ -d "/home/lampac" ]
+if [ -d "/home/lampac" ]
 then
 echo "${GREEN}Lampac already installed${NONE}"
 echo "${RED}Uninstall it first in uninstall.sh${NONE}"
 else
-proot-distro login debian
 #install ASP.NET for Lampac
 wget https://dot.net/v1/dotnet-install.sh
 chmod 755 dotnet-install.sh
@@ -46,12 +45,11 @@ Torrserver_118OE)
 echo ""
 ;;
 Torrserver_latest)
-if proot-distro login debian -- [ -d "/home/torrserver" ]
+if [ -d "/home/torrserver" ]
 then
 echo "${GREEN}Torrserver already installed${NONE}"
 echo "${RED}Uninstall it first in uninstall.sh${NONE}"
 else
-proot-distro login debian
 cd /home
 mkdir torrserver
 cd /home/torrserver
