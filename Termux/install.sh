@@ -3,12 +3,10 @@
 RED='\033[1;31m'
 GREEN='\033[1;32m'
 NONE='\033[0m'
-#Check packages version if installed
-torrserver_git_ver="$(https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
-torrserver_ver="proot-distro login debian -- $(cat /home/torrserver/ver.txt)"
-lampac_git_ver="$(curl -s https://api.github.com/repos/immisterio/Lampac/releases/latest | grep tag_name | sed s/[^0-9]//g)"
-lampac_ver="proot-distro login debian -- $(cat /home/lampac/vers.txt)"
+
 PS3="Choose packages to install: "
+
+torrserver_git_ver="$(https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
 
 select packages in Lampac Jackett Torrserver:111OE Torrserver:118OE Torrserver:$torrserver_git_ver Quit; do
 case $packages in
@@ -18,7 +16,6 @@ then
 echo "${GREEN}Lampac already installed $lampac_ver ${NONE}"
 echo "${RED}Uninstall it first in uninstall.sh${NONE}"
 else
-if
 proot-distro login debian
 #install ASP.NET for Lampac
 wget https://dot.net/v1/dotnet-install.sh
@@ -42,7 +39,6 @@ chmod 755 update.sh
 cp example.conf init.conf
 exit
 fi
-fi
 ;;
 Torrserver:111OE)
 
@@ -58,7 +54,6 @@ then
 echo "${GREEN}Torrserver already installed $torrserver_ver ${NONE}"
 echo "${RED}Uninstall it first in uninstall.sh${NONE}"
 else
-if
 proot-distro login debian
 cd /home
 mkdir torrserver
@@ -69,7 +64,6 @@ echo "$torrserver_git_ver" > ver.txt
 chmod 755 torrserver
 chmod 755 config.db
 exit
-fi
 fi
 ;;
 Quit)
