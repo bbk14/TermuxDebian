@@ -71,5 +71,4 @@ break
 echo "Invalid choose $REPLY"
 ;;
 esac
-rm install.sh
 done
