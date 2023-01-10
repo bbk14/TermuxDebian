@@ -46,7 +46,7 @@ Torrserver:118OE)
 
 ;;
 
-Torrserver:latest
+Torrserver:latest)
 if proot-distro login debian -- [ -d "/home/torrserver" ]
 then
 echo "${GREEN}Torrserver already installed${NONE}"
