@@ -6,14 +6,12 @@ NONE='\033[0m'
 
 PS3="Choose packages to install: "
 
-torrserver_git_ver="$(https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
-
-select packages in Lampac Jackett Torrserver:111OE Torrserver:118OE Torrserver:$torrserver_git_ver Quit; do
+select packages in Lampac Jackett Torrserver:111OE Torrserver:118OE Torrserver:latest Quit; do
 case $packages in
 Lampac)
 if proot-distro login debian -- [ -d "/home/lampac" ]
 then
-echo "${GREEN}Lampac already installed $lampac_ver ${NONE}"
+echo "${GREEN}Lampac already installed${NONE}"
 echo "${RED}Uninstall it first in uninstall.sh${NONE}"
 else
 proot-distro login debian
@@ -48,10 +46,10 @@ Torrserver:118OE)
 
 ;;
 
-Torrserver:$torrserver_git_ver
+Torrserver:latest
 if proot-distro login debian -- [ -d "/home/torrserver" ]
 then
-echo "${GREEN}Torrserver already installed $torrserver_ver ${NONE}"
+echo "${GREEN}Torrserver already installed${NONE}"
 echo "${RED}Uninstall it first in uninstall.sh${NONE}"
 else
 proot-distro login debian
@@ -60,6 +58,7 @@ mkdir torrserver
 cd /home/torrserver
 wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-android-arm64
 mv TorrServer-android-arm64 torrserver
+torrserver_git_ver="$(https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
 echo "$torrserver_git_ver" > ver.txt
 chmod 755 torrserver
 chmod 755 config.db
