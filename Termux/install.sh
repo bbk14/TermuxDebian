@@ -64,10 +64,6 @@ chmod 755 config.db
 
 ;;
 
-7)
-
-;;
-
 esac
 done
 clear
