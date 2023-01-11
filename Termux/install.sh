@@ -1,14 +1,19 @@
 #!/bin/bash
-#Color
-RED='\033[1;31m'
-GREEN='\033[1;32m'
-NONE='\033[0m'
 
-PS3="Choose packages to install: "
+packages=(1 "Lampac"
+          2 "Jackett"
+          3 "Torrserver 111 OE"
+          4 "Torrserver 118 OE"
+          5 "Torrserver latest"
+          6 "Midnight Commander")
 
-select packages in Lampac Jackett Torrserver_111OE Torrserver_118OE Torrserver_latest Quit; do
-case $packages in
-Lampac)
+while choice=$(dialog --title "$TITLE" \
+                 --menu "Choose packages to install" 10 40 3 "${packages[@]}" \
+                 2>&1 >/dev/tty)
+
+do
+case $choice in
+1)
 #install ASP.NET for Lampac
 wget https://dot.net/v1/dotnet-install.sh
 chmod 755 dotnet-install.sh
@@ -30,30 +35,35 @@ wget https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/u
 chmod 755 update.sh
 cp example.conf init.conf
 ;;
-Torrserver_111OE)
-echo ""
+
+2)
+
 ;;
 
-Torrserver_118OE)
+3)
+
+;;
+
+4)
 echo ""
 ;;
-Torrserver_latest)
-proot-distro login debian
+5)
 cd /home
 mkdir torrserver
 cd /home/torrserver
 wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-android-arm64
 mv TorrServer-android-arm64 torrserver
-torrserver_git_ver="$(https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
-echo "$torrserver_git_ver" > ver.txt
+torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
+echo -n $torrserver_git_ver > ver.txt
 chmod 755 torrserver
 chmod 755 config.db
 ;;
-Quit)
-break
+
+6)
+
 ;;
-*) 
-echo "Invalid choose $REPLY"
-;;
+
+
 esac
 done
+clear
