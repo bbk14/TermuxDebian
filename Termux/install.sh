@@ -3,7 +3,7 @@ torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/rel
 lampac_git_ver="$(curl -s https://api.github.com/repos/immisterio/Lampac/releases/latest | grep tag_name | sed s/[^0-9]//g)"
 jackett_git_ver="$(curl -s https://api.github.com/repos/Jackett/Jackett/releases/latest | grep tag_name | sed s/[^0-9]//g)"
 packages=(1 "Lampac ${lampac_git_ver}(latest)"
-          2 "Jackett ${jackett_git_ver}"
+          2 "Jackett ${jackett_git_ver}(latest)"
           3 "Torrserver 111 OE"
           4 "Torrserver 118 OE"
           5 "Torrserver ${torrserver_git_ver}(latest)"
