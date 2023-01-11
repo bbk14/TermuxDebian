@@ -5,7 +5,8 @@ packages=(1 "Lampac"
           3 "Torrserver 111 OE"
           4 "Torrserver 118 OE"
           5 "Torrserver latest"
-          6 "Midnight Commander")
+          6 "Midnight Commander"
+          7 "Test")
 
 while choice=$(dialog --title "$TITLE" \
                  --menu "Choose packages to install" 10 40 3 "${packages[@]}" \
@@ -63,6 +64,9 @@ chmod 755 config.db
 
 ;;
 
+7)
+
+;;
 esac
 done
 clear
