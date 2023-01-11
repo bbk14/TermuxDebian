@@ -1,10 +1,10 @@
 #!/bin/bash
-
+torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
 packages=(1 "Lampac"
           2 "Jackett"
           3 "Torrserver 111 OE"
           4 "Torrserver 118 OE"
-          5 "Torrserver latest"
+          5 "Torrserver latest,now:${torrserver_git_ver}"
           6 "Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" \
