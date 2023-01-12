@@ -7,24 +7,29 @@ BLUE='\033[1;36m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-options=(1 "Install packages"
-         2 "Update after install"
-         3 "Uninstall packages"
-         4 "Update after uninstall")
 
-while choice=$(dialog --title "$TITLE" \
-                 --menu "What we do today" 10 40 3 "${options[@]}" \
-                 2>&1 >/dev/tty)
+PS3=$'\e[1;33mWhat we do today: \e[0;33m'
 
-do
-case $choice in
-1)
+select option in Install Uninstall Quit; do
+case $option in
+Install)
 proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/install.sh
 proot-distro login debian -- bash install.sh
 ;;
-2)
+Uninstall)
+proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/uninstall.sh
+proot-distro login debian -- bash uninstall.sh
+;;
+Quit)
+break
+;;
+*)
+echo -e "${RED}Invalid input $REPLY
+${PURPLE}*configuration apply immediately and autorestart after  changes ${GREEN}Install ${NC}or ${RED}Uninstall"
+;;
+esac
 #check if Lampac is installed
-if proot-distro login debian -- [ -d "/home/lampac" ]
+if proot-distro login debian -- [ -d "/home/lampac" ];
 then
 cat <<EOT >> noteT.sh
 #LampacStart
@@ -43,9 +48,13 @@ echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
 #LampacEnd
 EOT
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> ~/.bashrc
+else
+sed -i "/#LampacStart/,/#LampacEnd:/d" noteT.sh
+sed -i "/#LampacStart/,/#LampacEnd:/d" noteD.sh
+sed -i '/-t Lampac/d' .bashrc
 fi
 #check if Jackett is installed
-if proot-distro login debian -- [ -d "/home/Jackett" ]
+if proot-distro login debian -- [ -d "/home/Jackett" ];
 then
 cat <<EOT >> noteT.sh
 #JackettStart
@@ -64,9 +73,13 @@ echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
 #JackettEnd
 EOT
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
+else
+sed -i "/#JackettStart/,/#JackettEnd:/d" noteT.sh
+sed -i "/#JackettStart/,/#JackettEnd:/d" noteD.sh
+sed -i '/-t Jackett/d' .bashrc
 fi
 #check if Torrserver is installed
-if proot-distro login debian -- [ -d "/home/torrserver" ]
+if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
 cat <<EOT >> noteT.sh
 #TorrserverStart
@@ -78,9 +91,12 @@ echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
 #TorrserverEnd
 EOT
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> ~/.bashrc
+else
+sed -i "/#TorrserverStart/,/#TorrserverEnd:/d" noteT.sh
+sed -i '/-t Torrserver/d' .bashrc
 fi
 #check if Midnight Commander is installed
-if proot-distro login debian -- [ -d "/etc/mc" ]
+if proot-distro login debian -- [ -d "/etc/mc" ];
 then
 cat <<EOT >> noteT.sh
 #MidnightCommanderStart
@@ -89,59 +105,6 @@ echo -e "${NC}${BLUE}run Midnight Commander:"
 echo -e " ${YELLOW}proot-distro login debian -- mc${NC}"
 #MidnightCommanderEnd
 EOT
-fi
-sed -i "/#DebianStart/,/#DebianEnd:/d" noteT.sh
-cat <<EOT >> noteT.sh
-#DebianStart
-echo ""
-echo -e "${NC}${BLUE}start Debian for more settings:"
-echo -e " ${YELLOW}proot-distro login debian${NC}"
-#DebianEnd
-EOT
-sed -i "/#GreetingStart/,/#GreetingEnd:/d" .bashrc
-cat <<EOT >> .bashrc
-#GreetingStart
-bash note.sh
-bash packages_control.sh
-#GreetingEnd
-EOT
-source ~/.bashrc
-;;
-3)
-proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/uninstall.sh
-proot-distro login debian -- bash uninstall.sh
-;;
-4)
-#check if Lampac is installed
-if proot-distro login debian -- [ -d "/home/lampac" ]
-then
-echo ""
-else
-sed -i "/#LampacStart/,/#LampacEnd:/d" noteT.sh
-sed -i "/#LampacStart/,/#LampacEnd:/d" noteD.sh
-sed -i '/-t Lampac/d' .bashrc
-fi
-#check if Jackett is installed
-if proot-distro login debian -- [ -d "/home/Jackett" ]
-then
-echo ""
-else
-sed -i "/#JackettStart/,/#JackettEnd:/d" noteT.sh
-sed -i "/#JackettStart/,/#JackettEnd:/d" noteD.sh
-sed -i '/-t Jackett/d' .bashrc
-fi
-#check if Torrserver is installed
-if proot-distro login debian -- [ -d "/home/torrserver" ]
-then
-echo ""
-else
-sed -i "/#TorrserverStart/,/#TorrserverEnd:/d" noteT.sh
-sed -i '/-t Torrserver/d' .bashrc
-fi
-#check if Midnight Commander is installed
-if proot-distro login debian -- [ -d "/etc/mc" ]
-then
-echo ""
 else
 sed -i "/#MidnightCommanderStart/,/#MidnightCommanderEnd:/d" noteT.sh
 fi
@@ -162,7 +125,21 @@ bash packages_control.sh
 EOT
 source ~/.bashrc
 ;;
-
-esac
+sed -i "/#DebianStart/,/#DebianEnd:/d" noteT.sh
+cat <<EOT >> noteT.sh
+#DebianStart
+echo ""
+echo -e "${NC}${BLUE}start Debian for more settings:"
+echo -e " ${YELLOW}proot-distro login debian${NC}"
+#DebianEnd
+EOT
+sed -i "/#GreetingStart/,/#GreetingEnd:/d" .bashrc
+cat <<EOT >> .bashrc
+#GreetingStart
+bash note.sh
+bash packages_control.sh
+#GreetingEnd
+EOT
+source ~/.bashrc
+exit
 done
-clear
