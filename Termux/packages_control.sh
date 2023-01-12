@@ -7,10 +7,10 @@ BLUE='\033[1;36m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-options=(1 "install packages"
-         2 "update all after install"
-         3 "install packages"
-         4 "update all after uninstall")
+options=(1 "Install packages"
+         2 "Update after install"
+         3 "Uninstall packages"
+         4 "Update after uninstall")
 
 while choice=$(dialog --title "$TITLE" \
                  --menu "What we do today" 10 40 3 "${options[@]}" \
@@ -105,6 +105,7 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
+source ~/.bashrc
 ;;
 3)
 proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/uninstall.sh
@@ -159,6 +160,7 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
+source ~/.bashrc
 ;;
 
 esac
