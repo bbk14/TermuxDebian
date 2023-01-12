@@ -123,8 +123,6 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
-source ~/.bashrc
-;;
 sed -i "/#DebianStart/,/#DebianEnd:/d" noteT.sh
 cat <<EOT >> noteT.sh
 #DebianStart
