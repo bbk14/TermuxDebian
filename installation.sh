@@ -19,7 +19,7 @@ proot-distro login debian
 apt-get update && apt-get install -y wget libicu67
 wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/cronD.sh
 chmod 755 cronD.sh
-echo "cronD" >> ~/.bashrc
+echo "bash cronD.sh" >> ~/.bashrc
 #exit from Debian
 exit
 #add scripts to autorun in Termux when it open
@@ -31,6 +31,6 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
-echo "***####${GREEN}Done####***"
-echo "${RED}close Termux and open it again!"
-echo "${GREEN}type to close: ${RED}exit"
+echo -e "***####${GREEN}Done####***"
+echo -e "${RED}close Termux and open it again!"
+echo -e "${GREEN}type to close: ${RED}exit"
