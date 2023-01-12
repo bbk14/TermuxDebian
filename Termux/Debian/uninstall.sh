@@ -8,7 +8,7 @@ packages=(1 "Lampac"
           6 "Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" \
-                 --menu "Choose packages to remove" 10 40 3 "${packages[@]}" \
+                 --menu "Choose packages to remove" 10 40 10 "${packages[@]}" \
                  2>&1 >/dev/tty)
 
 do
