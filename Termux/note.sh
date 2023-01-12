@@ -10,4 +10,5 @@ echo ""
 bash noteT.sh
 echo ""
 bash noteD.sh
-echo "${NC}"
+echo ""
+${NC}
