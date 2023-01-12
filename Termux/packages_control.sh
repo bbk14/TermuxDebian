@@ -140,6 +140,6 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
-source ~/.bashrc
+bash.bashrc
 exit
 done
