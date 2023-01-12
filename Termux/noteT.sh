@@ -7,7 +7,7 @@ NC='\033[0m'
 echo -e "${GREEN}Termux input commands:"
 echo ""
 echo -e "${PURPLE}run packages control to install or unistall them:"
-echo -e " ${BLUE}*it run at every boot Termux"
+echo -e "${BLUE}*it run at every boot Termux"
 echo -e " ${YELLOW}bash packages_control.sh"
 echo ""
 echo -e "${BLUE}list sessions when you in Tmux:"
