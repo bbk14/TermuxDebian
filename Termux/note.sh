@@ -11,12 +11,3 @@ bash noteT.sh
 echo ""
 bash noteD.sh
 echo ""
-echo -e "${GREEN}Do you wish to load packages control ?"
-while true; do
-    read -p "Say (y or n) : " yn
-    case $yn in
-        [Yy]* ) bash packages_control.sh; break;;
-        [Nn]* ) exit;;
-        * ) echo -e "${RED}Please answer y or n${GREEN}";;
-    esac
-done
