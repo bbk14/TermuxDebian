@@ -9,6 +9,7 @@ echo -e " ${BLUE}***With love ${YELLOW}from Ukraine***"
 echo ""
 bash noteT.sh
 echo ""
+echo -e "${NC}***"
 bash noteD.sh
 echo ""
 echo -e "${NC}***"
