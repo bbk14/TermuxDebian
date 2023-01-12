@@ -29,7 +29,5 @@ EOT
 #start install packages
 curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages_control.sh
 chmod 755 packages_control.sh
-bash packages_control.sh
 #Done
 rm installation.sh
-echo "Happy Use"
