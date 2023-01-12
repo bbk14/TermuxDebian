@@ -24,13 +24,15 @@ echo "bash cronD.sh" >> ~/.bashrc
 exit
 #add scripts to autorun in Termux when it open
 cat <<EOT >> .bashrc
-cronT.sh
+bash cronT.sh
 bash tmux_off.sh
 #GreetingStart
 bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
-echo -e "***####${GREEN}Done####***"
+echo ""
+echo "#############################################"
+echo -e "${GREEN}***####Done####***"
 echo -e "${RED}close Termux and open it again!"
 echo -e "${GREEN}type to close: ${RED}exit"
