@@ -1,9 +1,9 @@
 #!/bin/bash
 torrserver_ver="$(cat /home/torrserver/vers.txt)"
 packages=(1 "Lampac"
-          2 "Jackett with saving config (if you install it in the future)"
+          2 "Jackett with saving config"
           3 "Jackett remove all"
-          4 "Torrserver ${torrserver_ver} with saving database (if you change version)"
+          4 "Torrserver ${torrserver_ver} with saving database"
           5 "Torrserver ${torrserver_ver} remove all"
           6 "Midnight Commander")
 
