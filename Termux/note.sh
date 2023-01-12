@@ -7,13 +7,10 @@ NC='\033[0m'
 echo -e "${RED}*****### NOTE ###*****"
 echo -e " ${BLUE}***With love ${YELLOW}from Ukraine***"
 echo ""
-echo "${NC}***"
 bash noteT.sh
 echo ""
-echo "${NC}***"
 bash noteD.sh
 echo ""
-echo "${NC}***"
 echo -e "${GREEN}Do you wish to load packages control ?"
 while true; do
     read -p "Say (y or n) : " yn
