@@ -1,4 +1,6 @@
 #!/bin/bash
+RED='\033[1;31m'
+GREEN='\033[1;32m'
 #install packages in Termux
 pkg install -y tmux proot-distro
 proot-distro install debian
@@ -15,11 +17,9 @@ chmod 755 packages_control.sh
 proot-distro login debian
 #install packages in Debian
 apt-get update && apt-get install -y wget libicu67
-curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/cronD.sh
+wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/cronD.sh
 chmod 755 cronD.sh
-cat <<EOT >> .bashrc
-cronD.sh
-EOT
+echo "cronD" >> ~/.bashrc
 #exit from Debian
 exit
 #add scripts to autorun in Termux when it open
@@ -31,5 +31,5 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
-#start autorun
-bash packages_control.sh
+echo "${GREEN}Done"
+echo "${RED}close Termux and open it again!"
