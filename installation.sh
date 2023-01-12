@@ -28,6 +28,5 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
-#Done
-echo "Done"
-echo "close Termux and open it again"
+#start autorun
+bash packages_control.sh
