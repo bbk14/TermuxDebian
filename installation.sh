@@ -31,5 +31,6 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
-echo "${GREEN}Done"
+echo "***####${GREEN}Done####***"
 echo "${RED}close Termux and open it again!"
+echo "${GREEN}type to close: ${RED}exit"
