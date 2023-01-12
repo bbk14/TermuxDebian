@@ -123,5 +123,6 @@ apt-get install mc -y
 ;;
 
 esac
+exit
 done
 clear
