@@ -30,5 +30,4 @@ bash packages_control.sh
 EOT
 #Done
 echo "Done"
-#start autorun
-source ~/.bashrc
+echo "close Termux and open it again"
