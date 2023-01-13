@@ -120,6 +120,7 @@ fi
 #install Midnight Commander
 6)
 apt-get install mc -y
+apt-get clean
 ;;
 
 esac
