@@ -18,8 +18,7 @@ echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
-elif
-[ grep -qxF 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"' .bashrc ]
+elif [[ grep -qxF 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"' .bashrc ]]
 then
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
 else
@@ -35,7 +34,7 @@ echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo -e "${NC}${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
-elif [ grep -qxF 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"' .bashrc ]
+elif [[ grep -qxF 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"' .bashrc ]]
 then
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> .bashrc
 else
@@ -49,7 +48,7 @@ echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
 echo -e "${RED}info Torrserver: https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
-elif [ grep -qxF 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"' .bashrc ]
+elif [[ grep -qxF 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"' .bashrc ]]
 then
 echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> .bashrc
 elif proot-distro login debian -- [ ! -d "/home/torrserver" ];
