@@ -8,6 +8,7 @@ NC='\033[0m'
 
 echo -e "${RED}*****### NOTE ###*****"
 echo -e " ${BLUE}***With love ${YELLOW}from Ukraine***"
+
 #check if Lampac is installed
 if proot-distro login debian -- [ -d "/home/lampac" ];
 then
@@ -18,12 +19,18 @@ echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
-elif ! grep -qF 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"' .bashrc
+fi
+#Lampac autostart
+if ! grep -qF 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"' .bashrc;
 then
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
-else
+fi
+if proot-distro login debian -- [ ! -d "/home/lampac" ];
+then
 sed -i '/-t Lampac/d' .bashrc
 fi
+#Lampac autostart
+
 #check if Jackett is installed
 if proot-distro login debian -- [ -d "/home/Jackett" ];
 then
@@ -34,12 +41,17 @@ echo -e "${BLUE}connect to Jackett session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo -e "${NC}${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
-elif ! grep -qF 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"' .bashrc
+fi
+#Jackett autostart
+if ! grep -qF 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"' .bashrc;
 then
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> .bashrc
-else
+fi
+if proot-distro login debian -- [ ! -d "/home/Jackett" ];
 sed -i '/-t Jackett/d' .bashrc
 fi
+#Jackett autostart
+
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
@@ -48,12 +60,17 @@ echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
 echo -e "${GREEN}info Torrserver: ${RED}https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
-elif ! grep -qF 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"' .bashrc
+fi
+#Torrserver autostart
+if ! grep -qF 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"' .bashrc;
 then
 echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> .bashrc
-else
+fi
+if proot-distro login debian -- [ ! -d "/home/torrserver" ];
 sed -i '/-t Torrserver/d' .bashrc
 fi
+#Torrserver autostart
+
 #check if Midnight Commander is installed
 if proot-distro login debian -- [ -d "/etc/mc" ];
 then
