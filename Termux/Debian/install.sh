@@ -8,7 +8,7 @@ packages=(1 "Lampac"
           5 "Torrserver ${torrserver_git_ver}(latest)"
           6 "Midnight Commander")
 
-while choice=$(dialog --title "$TITLE" --clear --cancel-label "Exit" \  
+while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
                       --menu "Choose packages to install" 20 50 50 "${packages[@]}" \
                       2>&1 >/dev/tty)
 
