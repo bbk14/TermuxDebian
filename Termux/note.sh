@@ -20,8 +20,6 @@ echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
 #Lampac autostart
-else
-sed -i '/-t Lampac/d' .bashrc
 ! grep -qF 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"' .bashrc || echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
 then
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
