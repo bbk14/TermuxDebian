@@ -48,6 +48,7 @@ then
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> .bashrc
 fi
 if proot-distro login debian -- [ ! -d "/home/Jackett" ];
+then
 sed -i '/-t Jackett/d' .bashrc
 fi
 #Jackett autostart
@@ -67,6 +68,7 @@ then
 echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> .bashrc
 fi
 if proot-distro login debian -- [ ! -d "/home/torrserver" ];
+then
 sed -i '/-t Torrserver/d' .bashrc
 fi
 #Torrserver autostart
