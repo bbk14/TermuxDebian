@@ -19,9 +19,9 @@ echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
-grep -qF -- '-s Lampac' '.bashrc' || echo 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
+grep -qF -- '-s Lampac' '.bashrc' || echo 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> cron.sh
 else
-sed -i '/-s Lampac/d' .bashrc
+sed -i '/-s Lampac/d' cron.sh
 fi
 #check if Jackett is installed
 if proot-distro login debian -- [ -d "/home/Jackett" ];
@@ -33,9 +33,9 @@ echo -e "${BLUE}connect to Jackett session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo -e "${NC}${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
-grep -qF -- '-s Jackett' '.bashrc' || echo 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
+grep -qF -- '-s Jackett' '.bashrc' || echo 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"'  >> cron.sh
 else
-sed -i '/-s Jackett/d' .bashrc
+sed -i '/-s Jackett/d' cron.sh
 fi
 
 #check if Torrserver is installed
@@ -46,9 +46,9 @@ echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
 echo -e "${GREEN}info Torrserver: ${RED}https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
-grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> .bashrc
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> cron.sh
 else
-sed -i '/-s Torrserver/d' .bashrc
+sed -i '/-s Torrserver/d' cron.sh
 fi
 
 #check if Midnight Commander is installed
@@ -72,10 +72,10 @@ echo -e "${NC}${BLUE}start Debian for more settings:"
 echo -e " ${YELLOW}proot-distro login debian${NC}"
 
 #autorun
-sed -i '/bash note.sh/d' .bashrc
-sed -i '/bash packages_control.sh/d' .bashrc
-echo "bash note.sh" >> .bashrc
-echo "bash packages_control.sh" >> .bashrc
+sed -i '/bash note.sh/d' cron.sh
+sed -i '/bash packages_control.sh/d' cron.sh
+echo "bash note.sh" >> cron.sh
+echo "bash packages_control.sh" >> cron.sh
 #autorun
 
 echo ""
