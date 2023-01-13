@@ -5,7 +5,7 @@ packages=(1 "Lampac"
           2 "Jackett"
           3 "Torrserver 111 OE"
           4 "Torrserver 118 OE"
-          5 "Torrserver ${torrserver_git_ver}(latest)"
+          5 "Torrserver ${torrserver_git_ver} (latest)"
           6 "Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
