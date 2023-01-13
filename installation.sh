@@ -18,15 +18,12 @@ apt-get update && apt-get install -y wget libicu67
 #exit from Debian
 exit
 #add scripts to autorun in Termux when it open
-cat <<EOT >> .bashrc
-bash tmux_off.sh
-curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh
-curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages_control.sh
-#GreetingStart
-bash note.sh
-bash packages_control.sh
-#GreetingEnd
-EOT
+echo "bash tmux_off.sh" >> .bashrc
+echo "curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh" >> .bashrc
+echo "curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages_control.sh" >> .bashrc
+echo "bash note.sh" >> .bashrc
+echo "bash packages_control.sh" >> .bashrc
+#Done
 echo ""
 echo "#############################################"
 echo -e "${GREEN}***####Done####***"
