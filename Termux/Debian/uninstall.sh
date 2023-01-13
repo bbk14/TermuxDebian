@@ -32,6 +32,7 @@ rm -R /root/.config/Jackett*
 #remove all Torrserver
 4)
 rm -R /home/torrserver*
+rm /root/config.db
 ;;
 #remove Midnight Commander
 5)
