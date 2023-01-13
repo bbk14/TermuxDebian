@@ -6,8 +6,8 @@ YELLOW='\033[1;33m'
 PURPLE='\033[0;35m'
 NC='\033[0m'
 
-echo -e "${RED}*****### NOTE ###*****"
 echo -e " ${BLUE}***With love ${YELLOW}from Ukraine***"
+echo -e "${RED}*****### NOTE ###*****"
 
 #check if Lampac is installed
 if proot-distro login debian -- [ -d "/home/lampac" ];
