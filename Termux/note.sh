@@ -21,7 +21,6 @@ echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
 #Lampac autostart
 ! grep -qF 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"' '.bashrc' || echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
-then
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
 else
 sed -i '/-s Lampac/d' .bashrc
@@ -68,10 +67,6 @@ echo -e "${NC}${BLUE}run Midnight Commander:"
 echo -e " ${YELLOW}proot-distro login debian -- mc${NC}"
 fi
 echo ""
-echo -e "${YELLOW}run packages control to ${GREEN}install ${YELLOW}or ${RED}unistall ${YELLOW}them:"
-echo -e "${BLUE}*it run at every boot Termux"
-echo -e " ${YELLOW}bash packages_control.sh"
-echo ""
 echo -e "${BLUE}list sessions when you in Tmux:"
 echo -e " ${YELLOW}Ctrl+B+S"
 echo ""
@@ -83,11 +78,15 @@ echo -e " ${YELLOW}tmux kill-server${NC}"
 echo ""
 echo -e "${NC}${BLUE}start Debian for more settings:"
 echo -e " ${YELLOW}proot-distro login debian${NC}"
-
+#autorun
 sed -i '/bash note.sh/d' .bashrc
 sed -i '/bash packages_control.sh/d' .bashrc
-
 echo "bash note.sh" >> .bashrc
 echo "bash packages_control.sh" >> .bashrc
+#autorun
 echo ""
+echo -e "${YELLOW}packages control to ${GREEN}install ${YELLOW}or ${RED}unistall"
+echo -e "${BLUE}*it run at every boot Termux"
+echo -e " ${YELLOW}bash packages_control.sh"
 echo -e "${YELLOW}packages control to ${GREEN}install ${YELLOW}or ${RED}unistall${NC}"
+echo ""
