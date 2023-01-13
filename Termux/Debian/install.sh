@@ -9,7 +9,6 @@ packages=(1 "Lampac"
           6 "Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" \
-                      --checklist \
                       --clear \
                       --cancel-label "Exit" \  
                       --checklist "Choose packages to install" 20 50 50 "${packages[@]}" \
