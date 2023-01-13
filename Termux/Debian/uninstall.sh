@@ -7,8 +7,10 @@ packages=(1 "Lampac"
           5 "Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" \
-                 --menu "Choose packages to remove" 20 50 50 "${packages[@]}" \
-                 2>&1 >/dev/tty)
+                      --clear \
+                      --cancel-label "Exit" \  
+                      --menu "Choose packages to remove" 20 50 50 "${packages[@]}" \
+                      2>&1 >/dev/tty)
 
 do
 case $choice in
