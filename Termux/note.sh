@@ -84,5 +84,5 @@ echo "bash packages_control.sh" >> .bashrc
 echo ""
 echo -e "${YELLOW}packages control to ${GREEN}install ${YELLOW}or ${RED}unistall${NC}"
 echo -e "${BLUE}*it run at every boot Termux"
-echo -e " ${YELLOW}bash packages_control.sh"
+echo -e " ${YELLOW}bash packages_control.sh${NC}"
 echo ""
