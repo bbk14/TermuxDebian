@@ -19,10 +19,10 @@ echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
-sed -i '/-t Lampac/d' .bashrc
-echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
+sed -i '/-s Lampac/d' .bashrc
+echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> ~/.bashrc
 else
-sed -i '/-t Lampac/d' .bashrc
+sed -i '/-s Lampac/d' .bashrc
 fi
 
 #check if Jackett is installed
@@ -35,10 +35,10 @@ echo -e "${BLUE}connect to Jackett session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo -e "${NC}${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
-sed -i '/-t Jackett/d' .bashrc
-echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> .bashrc
+sed -i '/-s Jackett/d' .bashrc
+echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
 else
-sed -i '/-t Jackett/d' .bashrc
+sed -i '/-s Jackett/d' .bashrc
 fi
 
 #check if Torrserver is installed
@@ -49,10 +49,10 @@ echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
 echo -e "${GREEN}info Torrserver: ${RED}https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
-sed -i '/-t Torrserver/d' .bashrc
-echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> .bashrc
+sed -i '/-s Torrserver/d' .bashrc
+echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> ~/.bashrc
 else
-sed -i '/-t Torrserver/d' .bashrc
+sed -i '/-s Torrserver/d' .bashrc
 fi
 
 #check if Midnight Commander is installed
