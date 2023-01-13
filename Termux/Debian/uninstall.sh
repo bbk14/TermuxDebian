@@ -6,7 +6,7 @@ packages=(1 "Lampac"
           4 "Torrserver ${torrserver_ver}"
           5 "Midnight Commander")
 
-while choice=$(dialog --title "$TITLE" --clear --cancel-label "Exit" \ 
+while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
                       --menu "Choose packages to remove" 20 50 50 "${packages[@]}" \
                       2>&1 >/dev/tty)
 
