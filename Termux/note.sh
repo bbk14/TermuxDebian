@@ -19,6 +19,7 @@ echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo ""
 echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
+sed -i '/-t Lampac/d' .bashrc
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> ~/.bashrc
 else
 sed -i '/-t Lampac/d' .bashrc
@@ -34,6 +35,7 @@ echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo ""
 echo -e "${NC}${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
+sed -i '/-t Jackett/d' .bashrc
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> ~/.bashrc
 else
 sed -i '/-t Jackett/d' .bashrc
@@ -46,7 +48,8 @@ echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
 echo -e "${RED}about Torrserver: https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
-echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> ~/.bashrc
+sed -i '/-t Torrserver/d' .bashrc
+echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> ~/.bashrc
 else
 sed -i '/-t Torrserver/d' .bashrc
 fi
@@ -73,3 +76,9 @@ echo -e " ${YELLOW}tmux kill-server${NC}"
 echo ""
 echo -e "${NC}${BLUE}start Debian for more settings:"
 echo -e " ${YELLOW}proot-distro login debian${NC}"
+sed -i "/#GreetingStart/,/#GreetingEnd:/d" .bashrc
+cat <<EOT >> .bashrc
+#GreetingStart
+bash note.sh
+bash packages_control.sh
+#GreetingEnd
