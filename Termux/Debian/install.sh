@@ -8,7 +8,7 @@ packages=(1 "Lampac"
           5 "Torrserver ${torrserver_git_ver}(latest)"
           6 "Midnight Commander")
 
-while choice=$(dialog --checklist
+while choice=$(dialog --checklist \
                       --title "$TITLE" \
                       --clear \
                       --cancel-label "Exit" \  
