@@ -11,7 +11,7 @@ packages=(1 "Lampac"
 while choice=$(dialog --title "$TITLE" \
                       --clear \
                       --cancel-label "Exit" \  
-                      --checklist "Choose packages to install" 20 50 50 "${packages[@]}" \
+                      --menu "Choose packages to install" 20 50 50 "${packages[@]}" \
                       2>&1 >/dev/tty)
 
 do
