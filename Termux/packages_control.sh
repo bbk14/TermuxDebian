@@ -27,7 +27,6 @@ echo -e "${RED}Invalid input $REPLY
 ${PURPLE}*configuration apply immediately and autorestart after  changes ${GREEN}Install ${NC}or ${RED}Uninstall"
 ;;
 esac
-bash note.sh
 echo -e "${NC}${GREEN}***####Done####***"
 echo -e "${RED}close Termux and open it again!"
 echo -e "${GREEN}type to close: ${RED}exit${NC}"
