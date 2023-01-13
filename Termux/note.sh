@@ -18,7 +18,7 @@ echo -e "${GREEN}info Lampac: ${RED}https://github.com/immisterio/Lampac"
 echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
-echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
+echo -e " ${YELLOW}proot-distro login debian -- nano /home/lampac/init.conf${NC}"
 grep -qF -- '-s Lampac' '.bashrc' || echo 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
 else
 sed -i '/-s Lampac/d' .bashrc
@@ -32,7 +32,7 @@ echo -e "${GREEN}info Jackett: ${RED}https://github.com/Jackett/Jackett"
 echo -e "${BLUE}connect to Jackett session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo -e "${NC}${BLUE}change APIKey Jackett:"
-echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
+echo -e " ${YELLOW}proot-distro login debian -- nano /root/.config/Jackett/ServerConfig.json${NC}"
 grep -qF -- '-s Jackett' '.bashrc' || echo 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
 else
 sed -i '/-s Jackett/d' .bashrc
