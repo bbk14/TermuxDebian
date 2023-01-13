@@ -1,7 +1,7 @@
 #!/bin/bash
 torrserver_ver="$(cat /home/torrserver/vers.txt)"
 packages=(1 "Lampac"
-          2 "Jackett (save config fo future)"
+          2 "Jackett (save config for future)"
           3 "Jackett remove all"
           4 "Torrserver ${torrserver_ver}"
           5 "Midnight Commander")
