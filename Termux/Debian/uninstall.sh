@@ -37,6 +37,7 @@ rm /root/config.db
 #remove Midnight Commander
 5)
 apt-get purge mc -y
+apt-get clean
 ;;
 
 esac
