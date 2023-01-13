@@ -13,7 +13,7 @@ if proot-distro login debian -- [ -d "/home/lampac" ];
 then
 echo ""
 echo -e "${NC}${GREEN}Lampac running in background ip:9118"
-echo -e "${RED}about Lampac: https://github.com/immisterio/Lampac"
+echo -e "${RED}info Lampac: https://github.com/immisterio/Lampac"
 echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo ""
@@ -29,7 +29,7 @@ if proot-distro login debian -- [ -d "/home/Jackett" ];
 then
 echo ""
 echo -e "${NC}${GREEN}Jackett running in background ip:9117"
-echo -e "${RED}about Jackett: https://github.com/Jackett/Jackett"
+echo -e "${RED}info Jackett: https://github.com/Jackett/Jackett"
 echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo ""
@@ -45,7 +45,7 @@ if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
 echo ""
 echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
-echo -e "${RED}about Torrserver: https://github.com/YouROK/TorrServer"
+echo -e "${RED}info Torrserver: https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
 sed -i '/-t Torrserver/d' .bashrc
@@ -82,3 +82,4 @@ cat <<EOT >> .bashrc
 bash note.sh
 bash packages_control.sh
 #GreetingEnd
+EOT
