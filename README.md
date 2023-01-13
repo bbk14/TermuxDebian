@@ -7,7 +7,3 @@ Android 32-bit & 64-bit
 
 curl -s https://raw.githubusercontent.com/bbk14/Termux-Debian-Lampac-Jackett/main/install.sh | bash
 
-# Lampac info:
-https://github.com/immisterio/Lampac
-# Jackett info:
-https://github.com/Jackett/Jackett
