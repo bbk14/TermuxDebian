@@ -19,15 +19,13 @@ echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
 echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
-fi
 #Lampac autostart
+else
+sed -i '/-t Lampac/d' .bashrc
+fi
 if ! grep -qF 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"' .bashrc;
 then
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
-fi
-if proot-distro login debian -- [ ! -d "/home/lampac" ];
-then
-sed -i '/-t Lampac/d' .bashrc
 fi
 #Lampac autostart
 
@@ -41,15 +39,13 @@ echo -e "${BLUE}connect to Jackett session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo -e "${NC}${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
-fi
 #Jackett autostart
+else
+sed -i '/-t Jackett/d' .bashrc
+fi
 if ! grep -qF 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"' .bashrc;
 then
 echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> .bashrc
-fi
-if proot-distro login debian -- [ ! -d "/home/Jackett" ];
-then
-sed -i '/-t Jackett/d' .bashrc
 fi
 #Jackett autostart
 
@@ -61,15 +57,13 @@ echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
 echo -e "${GREEN}info Torrserver: ${RED}https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
-fi
 #Torrserver autostart
+else
+sed -i '/-t Torrserver/d' .bashrc
+fi
 if ! grep -qF 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"' .bashrc;
 then
 echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> .bashrc
-fi
-if proot-distro login debian -- [ ! -d "/home/torrserver" ];
-then
-sed -i '/-t Torrserver/d' .bashrc
 fi
 #Torrserver autostart
 
@@ -97,11 +91,9 @@ echo ""
 echo -e "${NC}${BLUE}start Debian for more settings:"
 echo -e " ${YELLOW}proot-distro login debian${NC}"
 sed -i "/#GreetingStart/,/#GreetingEnd:/d" .bashrc
-cat <<EOT >> .bashrc
-#GreetingStart
-bash note.sh
-bash packages_control.sh
-#GreetingEnd
-EOT
+echo "#GreetingStart" >> .bashrc
+echo "bash note.sh" >> .bashrc
+echo "bash packages_control.sh" >> .bashrc
+echo "#GreetingEnd" >> .bashrc
 echo ""
 echo -e "${YELLOW}packages control to ${GREEN}install ${YELLOW}or ${RED}unistall${NC}"
