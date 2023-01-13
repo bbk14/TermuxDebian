@@ -1,11 +1,10 @@
 #!/bin/bash
 torrserver_ver="$(cat /home/torrserver/vers.txt)"
 packages=(1 "Lampac"
-          2 "Jackett with saving config"
+          2 "Jackett (save config fo future)"
           3 "Jackett remove all"
-          4 "Torrserver ${torrserver_ver} with saving database"
-          5 "Torrserver ${torrserver_ver} remove all"
-          6 "Midnight Commander")
+          4 "Torrserver ${torrserver_ver}"
+          5 "Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" \
                  --menu "Choose packages to remove" 20 50 50 "${packages[@]}" \
@@ -30,16 +29,12 @@ rm -R /home/Jackett*
 rm -R /home/Jackett*
 rm -R /root/.config/Jackett*
 ;;
-#remove Torrserver with saving database (if you change version)
-4)
-rm /home/torrserver/torrserver
-;;
 #remove all Torrserver
-5)
+4)
 rm -R /home/torrserver*
 ;;
 #remove Midnight Commander
-6)
+5)
 apt-get purge mc -y
 ;;
 
