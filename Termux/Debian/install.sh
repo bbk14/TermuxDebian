@@ -8,9 +8,12 @@ packages=(1 "Lampac"
           5 "Torrserver ${torrserver_git_ver}(latest)"
           6 "Midnight Commander")
 
-while choice=$(dialog --title "$TITLE" \
-                 --menu "Choose packages to install" 20 50 50 "${packages[@]}" \
-                 2>&1 >/dev/tty)
+while choice=$(dialog --checklist
+                      --title "$TITLE" \
+                      --clear \
+                      --cancel-label "Exit" \  
+                      --menu "Choose packages to install" 20 50 50 "${packages[@]}" \
+                      2>&1 >/dev/tty)
 
 do
 case $choice in
