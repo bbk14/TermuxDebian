@@ -15,6 +15,7 @@ chmod 755 packages_control.sh
 proot-distro login debian
 #install packages in Debian
 apt-get update && apt-get install -y wget libicu67
+apt-get clean
 #exit from Debian
 exit
 #add scripts to autorun in Termux when it open
