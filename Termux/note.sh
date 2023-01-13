@@ -83,3 +83,5 @@ bash note.sh
 bash packages_control.sh
 #GreetingEnd
 EOT
+echo ""
+echo -e "${YELLOW}packages control to ${GREEN}install ${YELLOW}or ${RED}unistall${NC}"
