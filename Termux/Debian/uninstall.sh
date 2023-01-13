@@ -1,10 +1,10 @@
 #!/bin/bash
 torrserver_ver="$(cat /home/torrserver/vers.txt)"
-packages=(1 "Lampac"
-          2 "Jackett (save config for future)"
-          3 "Jackett remove all"
-          4 "Torrserver ${torrserver_ver}"
-          5 "Midnight Commander")
+packages=(1 "remove Lampac"
+          2 "remove Jackett (save config for future)"
+          3 "remove all Jackett"
+          4 "remove Torrserver ${torrserver_ver}"
+          5 "remove Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
                       --menu "Choose packages to remove" 20 50 50 "${packages[@]}" \
