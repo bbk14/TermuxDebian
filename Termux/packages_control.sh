@@ -12,9 +12,11 @@ PS3=$'\e[1;33mWhat we do today: \e[0;33m'
 select option in Install Uninstall Quit; do
 case $option in
 Install)
+proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/install.sh
 proot-distro login debian -- bash install.sh
 ;;
 Uninstall)
+proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/uninstall.sh
 proot-distro login debian -- bash uninstall.sh
 ;;
 Quit)
