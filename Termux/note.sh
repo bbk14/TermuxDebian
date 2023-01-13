@@ -24,7 +24,7 @@ echo -e " ${YELLOW}nano /home/lampac/init.conf${NC}"
 then
 echo "tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"" >> .bashrc
 else
-sed -i '/-t Lampac/d' .bashrc
+sed -i '/-s Lampac/d' .bashrc
 fi
 #Lampac autostart
 
@@ -41,7 +41,7 @@ echo -e " ${YELLOW}nano /root/.config/Jackett/ServerConfig.json${NC}"
 #Jackett autostart
 ! grep -qF 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"' .bashrc || echo "tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"" >> .bashrc
 else
-sed -i '/-t Jackett/d' .bashrc
+sed -i '/-s Jackett/d' .bashrc
 fi
 #Jackett autostart
 
@@ -56,7 +56,7 @@ echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
 #Torrserver autostart
 ! grep -qF 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"' .bashrc || echo "tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"" >> .bashrc
 else
-sed -i '/-t Torrserver/d' .bashrc
+sed -i '/-s Torrserver/d' .bashrc
 fi
 #Torrserver autostart
 
