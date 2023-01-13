@@ -9,7 +9,7 @@ packages=(1 "Lampac"
           6 "Midnight Commander")
 
 while choice=$(dialog --title "$TITLE" \
-                 --menu "Choose packages to install" 10 40 10 "${packages[@]}" \
+                 --menu "Choose packages to install" 40 40 40 "${packages[@]}" \
                  2>&1 >/dev/tty)
 
 do
