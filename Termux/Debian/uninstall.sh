@@ -2,7 +2,7 @@
 torrserver_ver="$(cat /home/torrserver/vers.txt)"
 packages=(1 "remove Lampac"
           2 "remove Jackett (save config for future)"
-          3 "remove all Jackett"
+          3 "remove Jackett"
           4 "remove Torrserver ${torrserver_ver}"
           5 "remove Midnight Commander"
           6 "remove Vifm")
@@ -14,6 +14,7 @@ while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
 do
 case $choice in
 1)
+killall dotnet
 #remove ASP.NET
 rm /usr/bin/dotnet
 rm -R /usr/share/dotnet*
@@ -23,27 +24,28 @@ rm -R /home/lampac*
 ;;
 #remove Jackett with saving config (if you install it in the future)
 2)
+killall jackett
 rm -R /home/Jackett*
 ;;
 #remove all Jackett
 3)
+killall jackett
 rm -R /home/Jackett*
 rm -R /root/.config/Jackett*
 ;;
 #remove all Torrserver
 4)
+killall torrserver
 rm -R /home/torrserver*
 rm /root/config.db
 ;;
 #remove Midnight Commander
 5)
 apt-get purge mc -y
-apt-get clean
 ;;
 #remove Vifm
 6)
 apt-get purge vifm -y
-apt-get clean
 ;;
 esac
 done
