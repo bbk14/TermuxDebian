@@ -13,12 +13,12 @@ echo -e "    ${RED}*****### NOTE ###*****"
 if proot-distro login debian -- [ -d "/home/lampac" ];
 then
 echo ""
-echo -e "${NC}${GREEN}Lampac running in background ip:9118"
-echo -e "${GREEN}info: ${RED}https://github.com/immisterio/Lampac"
+echo -e "${BLUE}Lampac running in background ${GREEN}ip:9118"
+echo -e "${BLUE}info: ${RED}https://github.com/immisterio/Lampac"
 echo -e "${BLUE}connect to Lampac session:"
-echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
-echo -e "${NC}${BLUE}change Lampac config:"
-echo -e " ${YELLOW}proot-distro login debian -- nano /home/lampac/init.conf${NC}"
+echo -e " ${YELLOW}tmux attach -t Lampac"
+echo -e "${BLUE}change Lampac config:"
+echo -e " ${YELLOW}proot-distro login debian -- nano /home/lampac/init.conf"
 grep -qF -- '-s Lampac' '.bashrc' || echo 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
 else
 sed -i '/-s Lampac/d' .bashrc
@@ -27,11 +27,11 @@ fi
 if proot-distro login debian -- [ -d "/home/Jackett" ];
 then
 echo ""
-echo -e "${NC}${GREEN}Jackett running in background ip:9117"
-echo -e "${GREEN}info: ${RED}https://github.com/Jackett/Jackett"
+echo -e "${BLUE}Jackett running in background ${GREEN}ip:9117"
+echo -e "${BLUE}info: ${RED}https://github.com/Jackett/Jackett"
 echo -e "${BLUE}connect to Jackett session:"
-echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
-echo -e "${NC}${BLUE}change APIKey Jackett:"
+echo -e " ${YELLOW}tmux attach -t Jackett"
+echo -e "${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}proot-distro login debian -- nano /root/.config/Jackett/ServerConfig.json${NC}"
 grep -qF -- '-s Jackett' '.bashrc' || echo 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
 else
@@ -42,10 +42,10 @@ fi
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
 echo ""
-echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
-echo -e "${GREEN}info: ${RED}https://github.com/YouROK/TorrServer"
+echo -e "${BLUE}Torrserver running in background ${GREEN}ip:8091"
+echo -e "${BLUE}info: ${RED}https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
-echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
+echo -e " ${YELLOW}tmux attach -t Torrserver"
 grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> .bashrc
 else
 sed -i '/-s Torrserver/d' .bashrc
@@ -55,17 +55,17 @@ fi
 if proot-distro login debian -- [ -d "/etc/mc" ];
 then
 echo ""
-echo -e "${NC}${BLUE}run Midnight Commander:"
+echo -e "${BLUE}run Midnight Commander:"
 echo -e "${BLUE}info: ${RED}https://midnight-commander.org/wiki/doc/common/actions"
-echo -e " ${YELLOW}proot-distro login debian -- mc${NC}"
+echo -e " ${YELLOW}proot-distro login debian -- mc"
 fi
 #check if Vifm is installed
 if proot-distro login debian -- [ -d "/usr/share/vifm" ];
 then
 echo ""
-echo -e "${NC}${BLUE}run Vifm:"
+echo -e "${BLUE}run Vifm:"
 echo -e "${BLUE}info: ${RED}https://vifm.info/cheatsheets.shtml"
-echo -e " ${YELLOW}proot-distro login debian -- vifm${NC}"
+echo -e " ${YELLOW}proot-distro login debian -- vifm"
 fi
 #command list
 echo ""
@@ -76,9 +76,9 @@ echo -e "${BLUE}disconnect from session when you in Tmux:"
 echo -e " ${YELLOW}Ctrl+B+D"
 echo ""
 echo -e "${BLUE}stop all sessions and packages:"
-echo -e " ${YELLOW}tmux kill-server${NC}"
+echo -e " ${YELLOW}tmux kill-server"
 echo ""
-echo -e "${NC}${BLUE}start Debian for more settings:"
+echo -e "${BLUE}start Debian for more settings:"
 echo -e " ${YELLOW}proot-distro login debian${NC}"
 
 #autorun
