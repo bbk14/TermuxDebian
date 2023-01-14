@@ -7,14 +7,14 @@ PURPLE='\033[0;35m'
 NC='\033[0m'
 
 echo -e " ${BLUE}***With love ${YELLOW}from Ukraine***"
-echo -e "${RED}*****### NOTE ###*****"
+echo -e "    ${RED}*****### NOTE ###*****"
 
 #check if Lampac is installed
 if proot-distro login debian -- [ -d "/home/lampac" ];
 then
 echo ""
 echo -e "${NC}${GREEN}Lampac running in background ip:9118"
-echo -e "${GREEN}info Lampac: ${RED}https://github.com/immisterio/Lampac"
+echo -e "${GREEN}info: ${RED}https://github.com/immisterio/Lampac"
 echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac${NC}"
 echo -e "${NC}${BLUE}change Lampac config:"
@@ -28,7 +28,7 @@ if proot-distro login debian -- [ -d "/home/Jackett" ];
 then
 echo ""
 echo -e "${NC}${GREEN}Jackett running in background ip:9117"
-echo -e "${GREEN}info Jackett: ${RED}https://github.com/Jackett/Jackett"
+echo -e "${GREEN}info: ${RED}https://github.com/Jackett/Jackett"
 echo -e "${BLUE}connect to Jackett session:"
 echo -e " ${YELLOW}tmux attach -t Jackett${NC}"
 echo -e "${NC}${BLUE}change APIKey Jackett:"
@@ -43,7 +43,7 @@ if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
 echo ""
 echo -e "${NC}${GREEN}Torrserver running in background ip:8091"
-echo -e "${GREEN}info Torrserver: ${RED}https://github.com/YouROK/TorrServer"
+echo -e "${GREEN}info: ${RED}https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver${NC}"
 grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> .bashrc
@@ -56,8 +56,18 @@ if proot-distro login debian -- [ -d "/etc/mc" ];
 then
 echo ""
 echo -e "${NC}${BLUE}run Midnight Commander:"
+echo -e "${BLUE}info: ${RED}https://midnight-commander.org/wiki/doc/common/actions"
 echo -e " ${YELLOW}proot-distro login debian -- mc${NC}"
 fi
+#check if Vifm is installed
+if proot-distro login debian -- [ -d "/usr/share/vifm" ];
+then
+echo ""
+echo -e "${NC}${BLUE}run Vifm:"
+echo -e "${BLUE}info: ${RED}https://vifm.info/cheatsheets.shtml"
+echo -e " ${YELLOW}proot-distro login debian -- vifm${NC}"
+fi
+#command list
 echo ""
 echo -e "${BLUE}list sessions when you in Tmux:"
 echo -e " ${YELLOW}Ctrl+B+S"
@@ -79,7 +89,6 @@ echo "bash packages_control.sh" >> .bashrc
 #autorun
 
 echo ""
-echo -e "${YELLOW}packages control to ${GREEN}install ${YELLOW}or ${RED}unistall${NC}"
-echo -e "${BLUE}*it run at every boot Termux"
+echo -e "${BLUE}packages control to ${GREEN}install ${BLUE}or ${RED}unistall${NC}"
 echo -e " ${YELLOW}bash packages_control.sh${NC}"
 echo ""
