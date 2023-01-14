@@ -6,7 +6,8 @@ packages=(1 "Lampac"
           3 "Torrserver 111 OE"
           4 "Torrserver 118 OE"
           5 "Torrserver ${torrserver_git_ver} (latest)"
-          6 "Midnight Commander")
+          6 "Midnight Commander"
+          7 "Vifm")
 
 while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
                       --menu "Choose packages to install" 20 50 50 "${packages[@]}" \
@@ -122,7 +123,11 @@ fi
 apt-get install mc -y
 apt-get clean
 ;;
-
+#install Vifm
+7)
+apt-get install vifm -y
+apt-get clean
+;;
 esac
 done
 clear
