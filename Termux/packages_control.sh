@@ -14,10 +14,12 @@ case $option in
 Install)
 proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/install.sh
 proot-distro login debian -- bash install.sh
+proot-distro login debian -- apt-get clean
 ;;
 Uninstall)
 proot-distro login debian -- curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/uninstall.sh
 proot-distro login debian -- bash uninstall.sh
+proot-distro login debian -- apt-get clean
 ;;
 Quit)
 break
@@ -29,7 +31,7 @@ ${PURPLE}*configuration apply immediately and autorestart after  changes ${GREEN
 esac
 bash note.sh
 echo -e "${NC}${GREEN}***####Done####***"
-echo -e "${RED}close Termux and open it again!"
+echo -e "${RED}close Termux and open it again to apply changes!"
 echo -e "${GREEN}type to close: ${RED}exit${NC}"
 exit
 done
