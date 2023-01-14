@@ -15,15 +15,19 @@ chmod 755 packages_control.sh
 proot-distro login debian
 #install packages in Debian
 apt-get update && apt-get install -y wget libicu67
+#clean packages cache Debian
 apt-get clean
 #exit from Debian
 exit
 #add scripts to autorun in Termux when it open
+echo "pkg autoclean" >> .bashrc
 echo "bash tmux_off.sh" >> .bashrc
 echo "curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh" >> .bashrc
 echo "curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages_control.sh" >> .bashrc
 echo "bash note.sh" >> .bashrc
 echo "bash packages_control.sh" >> .bashrc
+#clean packages cache Termux
+pkg clean
 #Done
 echo ""
 echo "#############################################"
