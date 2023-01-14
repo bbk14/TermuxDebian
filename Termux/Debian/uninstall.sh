@@ -4,7 +4,8 @@ packages=(1 "remove Lampac"
           2 "remove Jackett (save config for future)"
           3 "remove all Jackett"
           4 "remove Torrserver ${torrserver_ver}"
-          5 "remove Midnight Commander")
+          5 "remove Midnight Commander"
+          6 "remove Vifm")
 
 while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
                       --menu "Choose packages to remove" 20 50 50 "${packages[@]}" \
@@ -39,7 +40,11 @@ rm /root/config.db
 apt-get purge mc -y
 apt-get clean
 ;;
-
+#remove Vifm
+6)
+apt-get purge vifm -y
+apt-get clean
+;;
 esac
 done
 clear
