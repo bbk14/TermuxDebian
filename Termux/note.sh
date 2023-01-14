@@ -84,8 +84,10 @@ echo -e " ${YELLOW}proot-distro login debian${NC}"
 #autorun
 sed -i '/bash note.sh/d' .bashrc
 sed -i '/bash packages_control.sh/d' .bashrc
-echo "bash note.sh" >> .bashrc
-echo "bash packages_control.sh" >> .bashrc
+cat <<EOT>> .bashrc
+bash note.sh
+bash packages_control.sh
+EOT
 #autorun
 
 echo ""
