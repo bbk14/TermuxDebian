@@ -121,12 +121,10 @@ fi
 #install Midnight Commander
 6)
 apt-get install mc -y
-apt-get clean
 ;;
 #install Vifm
 7)
 apt-get install vifm -y
-apt-get clean
 ;;
 esac
 done
