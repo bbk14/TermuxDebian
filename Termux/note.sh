@@ -19,7 +19,7 @@ echo -e "${BLUE}connect to Lampac session:"
 echo -e " ${YELLOW}tmux attach -t Lampac"
 echo -e "${BLUE}change Lampac config:"
 echo -e " ${YELLOW}proot-distro login debian -- nano /home/lampac/init.conf"
-grep -qF -- '-s Lampac' '.bashrc' || echo 'tmux new-session -s Lampac -d "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
+grep -qF -- '-s Lampac' '.bashrc' || echo 'tmux new-session -d -s Lampac "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
 else
 sed -i '/-s Lampac/d' .bashrc
 fi
@@ -33,7 +33,7 @@ echo -e "${BLUE}connect to Jackett session:"
 echo -e " ${YELLOW}tmux attach -t Jackett"
 echo -e "${BLUE}change APIKey Jackett:"
 echo -e " ${YELLOW}proot-distro login debian -- nano /root/.config/Jackett/ServerConfig.json${NC}"
-grep -qF -- '-s Jackett' '.bashrc' || echo 'tmux new-session -s Jackett -d "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
+grep -qF -- '-s Jackett' '.bashrc' || echo 'tmux new-session -d -s Jackett "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
 else
 sed -i '/-s Jackett/d' .bashrc
 fi
@@ -46,7 +46,7 @@ echo -e "${BLUE}Torrserver running in background ${GREEN}ip:8091"
 echo -e "${BLUE}info: ${RED}https://github.com/YouROK/TorrServer"
 echo -e "${BLUE}connect to Torrserver session:"
 echo -e " ${YELLOW}tmux attach -t Torrserver"
-grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -s Torrserver -d "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> .bashrc
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> .bashrc
 else
 sed -i '/-s Torrserver/d' .bashrc
 fi
