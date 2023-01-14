@@ -20,12 +20,14 @@ apt-get clean
 #exit from Debian
 exit
 #add scripts to autorun in Termux when it open
-echo "pkg clean" >> .bashrc
-echo "bash tmux_off.sh" >> .bashrc
-echo "curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh" >> .bashrc
-echo "curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages_control.sh" >> .bashrc
-echo "bash note.sh" >> .bashrc
-echo "bash packages_control.sh" >> .bashrc
+cat <<EOT>> .bashrc
+pkg clean
+bash tmux_off.sh
+curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh
+curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages_control.sh
+bash note.sh
+bash packages_control.sh
+EOT
 #clean packages cache Termux
 pkg clean
 #Done
