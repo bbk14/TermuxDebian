@@ -12,25 +12,28 @@ PS3=$'\e[1;33mWhat we do today: \e[0;33m'
 select option in Install Uninstall Quit; do
 case $option in
 Install)
+
 cat <<\EOF> install.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
 torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
-packages=(1 "Lampac"
-          2 "Jackett"
-          3 "Torrserver 111 OE"
-          4 "Torrserver 118 OE"
-          5 "Torrserver ${torrserver_git_ver} (latest)"
-          6 "Midnight Commander"
-          7 "Vifm")
+cmd=(dialog --separate-output --title "$TITLE" --cancel-label "Exit" --checklist "Choose packages to install\nPress spacebar to select multiple" 22 76 16)
+packages=(1 "Lampac" off
+          2 "Jackett" off
+          3 "Torrserver 111 OE" off
+          4 "Torrserver 118 OE" off
+          5 "Torrserver ${torrserver_git_ver} (latest)" off
+          6 "Midnight Commander" off
+          7 "Vifm" off )
 
-while choice=$(dialog --title "$TITLE" --cancel-label "Exit" \
-                      --menu "Choose packages to install" 20 50 50 "${packages[@]}" \
-                      2>&1 >/dev/tty)
+choices=$("${cmd[@]}" "${packages[@]}" 2>&1 >/dev/tty)
 
+for choice in $choices
 do
 case $choice in
 1)
+cd $HOME/debian/root
+cat <<\EOF> install.sh
 #install ASP.NET for Lampac
 wget https://dot.net/v1/dotnet-install.sh
 chmod 755 dotnet-install.sh
@@ -52,6 +55,11 @@ rm -f publish.zip
 wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/update.sh
 cp example.conf init.conf
 chmod 755 -R /home/lampac
+EOF
+bash install.sh
+wait $!
+rm install.sh
+echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> .bashrc
 ;;
 #install Jackett
 2)
@@ -75,6 +83,7 @@ fi
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
+mkdir torrserver_config
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/7kos493fhikfs74/111OE_TorrServer-android-arm64
@@ -83,6 +92,7 @@ echo -n 111OE > vers.txt
 chmod 755 -R /home/torrserver
 else
 cd /home
+mkdir torrserver_config
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/yu2pyewdndcex5i/111OE_TorrServer-android-arm7
@@ -96,6 +106,7 @@ fi
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
+mkdir torrserver_config
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/tt5i6lvm2mjsi1g/118OE_TorrServer-android-arm64
@@ -104,6 +115,7 @@ echo -n 118OE > vers.txt
 chmod 755 -R /home/torrserver
 else
 cd /home
+mkdir torrserver_config
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/r7u8f13didnkatz/118OE_TorrServer-android-arm7
@@ -117,6 +129,7 @@ fi
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
+mkdir torrserver_config
 mkdir torrserver
 cd /home/torrserver
 wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-android-arm64
@@ -125,6 +138,7 @@ echo -n $torrserver_git_ver > vers.txt
 chmod 755 -R /home/torrserver
 else
 cd /home
+mkdir torrserver_config
 mkdir torrserver
 cd /home/torrserver
 wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-android-arm7
