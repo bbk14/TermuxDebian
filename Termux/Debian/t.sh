@@ -194,7 +194,7 @@ wait $!
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
-grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/torrserver_config"'  >> .bashrc
 fi
 ;;
 4)
@@ -204,7 +204,7 @@ wait $!
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
-grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/torrserver_config"'  >> .bashrc
 fi
 ;;
 5)
@@ -214,7 +214,7 @@ wait $!
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
-grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/torrserver_config"'  >> .bashrc
 fi
 ;;
 6)
