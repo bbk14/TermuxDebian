@@ -170,32 +170,52 @@ case $choice in
 #install Lampac
 proot-distro login debian -- bash /root/updater/lampac.sh
 wait $!
-echo 'tmux new-session -d -s Lampac "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
+#check if Lampac is installed
+if proot-distro login debian -- [ -d "/home/lampac" ];
+then
+grep -qF -- '-s Lampac' '.bashrc' || echo 'tmux new-session -d -s Lampac "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
+fi
 ;;
 
 2)
 #install Jackett
 proot-distro login debian -- bash /root/updater/jackett.sh
 wait $!
-echo 'tmux new-session -d -s Jackett "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
+#check if Jackett is installed
+if proot-distro login debian -- [ -d "/home/Jackett" ];
+then
+grep -qF -- '-s Jackett' '.bashrc' || echo 'tmux new-session -d -s Jackett "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
+fi
 ;;
 3)
 #install Torrserver 111 OE
 proot-distro login debian -- bash /root/updater/torrserver111.sh
 wait $!
-echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+#check if Torrserver is installed
+if proot-distro login debian -- [ -d "/home/torrserver" ];
+then
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+fi
 ;;
 4)
 #install Torrserver 118 OE
 proot-distro login debian -- bash /root/updater/torrserver118.sh
 wait $!
-echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+#check if Torrserver is installed
+if proot-distro login debian -- [ -d "/home/torrserver" ];
+then
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+fi
 ;;
 5)
 #install Torrserver latest
 proot-distro login debian -- bash /root/updater/torrserver.sh
 wait $!
-echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+#check if Torrserver is installed
+if proot-distro login debian -- [ -d "/home/torrserver" ];
+then
+grep -qF -- '-s Torrserver' '.bashrc' || echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+fi
 ;;
 6)
 #install Midnight Commander
