@@ -56,10 +56,10 @@ wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/upd
 cp example.conf init.conf
 chmod 755 -R /home/lampac
 EOF
-bash install.sh
+proot-distro login debian -- bash install.sh
 wait $!
-rm install.sh
-echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091"'  >> .bashrc
+proot-distro login debian -- rm install.sh
+echo 'tmux new-session -d -s Lampac "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
 ;;
 #install Jackett
 2)
