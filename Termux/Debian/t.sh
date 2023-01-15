@@ -230,7 +230,8 @@ done
 clear
 EOF
 bash install.sh
-
+rm $HOME/debian/root/updater*
+rm install.sh
 
 ;;
 Uninstall)
