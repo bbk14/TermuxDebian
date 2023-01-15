@@ -12,9 +12,9 @@ PS3=$'\e[1;33mWhat we do today: \e[0;33m'
 select option in Install Uninstall Quit; do
 case $option in
 Install)
-################################################################################ Make scripts for install in Debian
+############################ Make scripts for install in Debian
 cd $HOME/debian/root/updater
-##############################################Lampac
+############################ Lampac
 cat <<\EOF> lampac.sh
 #!/bin/bash
 #install ASP.NET for Lampac
@@ -39,9 +39,9 @@ wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/upd
 cp example.conf init.conf
 chmod 755 -R /home/lampac
 EOF
-##############################################Lampac
+############################ Lampac
 
-##############################################Jackett
+############################ Jackett
 cat <<\EOF> jackett.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
@@ -60,10 +60,10 @@ tar -xvf Jackett.Binaries.LinuxARM32.tar.gz
 rm Jackett.Binaries.LinuxARM32.tar.gz
 chmod 755 -R /home/Jackett
 fi
-EOT
-##############################################Jackett
+EOF
+############################ Jackett
 
-##############################################Torrserver 111OE
+############################ Torrserver 111OE
 cat <<\EOF> torrserver111.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
@@ -88,10 +88,10 @@ mv 111OE_TorrServer-android-arm7 torrserver
 echo -n 111OE > vers.txt
 chmod 755 -R /home/torrserver
 fi
-EOT
-##############################################Torrserver 111OE
+EOF
+############################ Torrserver 111OE
 
-##############################################Torrserver 118OE
+############################ Torrserver 118OE
 cat <<\EOF> torrserver118.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
@@ -116,10 +116,10 @@ mv 118OE_TorrServer-android-arm7 torrserver
 echo -n 118OE > vers.txt
 chmod 755 -R /home/torrserver
 fi
-EOT
-##############################################Torrserver 118OE
+EOF
+############################ Torrserver 118OE
 
-##############################################Torrserver latest
+############################ Torrserver latest
 cat <<\EOF> torrserver.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
@@ -144,8 +144,8 @@ mv TorrServer-android-arm7 torrserver
 echo -n $torrserver_git_ver > vers.txt
 chmod 755 -R /home/torrserver
 fi
-EOT
-##############################################Torrserver latest
+EOF
+############################ Torrserver latest
 
 cd $HOME
 cat <<\EOF> install.sh
@@ -209,6 +209,7 @@ esac
 done
 clear
 EOF
+bash install.sh
 
 
 ;;
