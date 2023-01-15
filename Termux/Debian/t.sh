@@ -12,28 +12,11 @@ PS3=$'\e[1;33mWhat we do today: \e[0;33m'
 select option in Install Uninstall Quit; do
 case $option in
 Install)
-
-cat <<\EOF> install.sh
+################################################################################ Make scripts for install in Debian
+cd $HOME/debian/root/updater
+##############################################Lampac
+cat <<\EOF> lampac.sh
 #!/bin/bash
-VER="$(uname -m | grep aarch64)"
-torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
-cmd=(dialog --separate-output --title "$TITLE" --cancel-label "Exit" --checklist "Choose packages to install\nPress spacebar to select multiple" 22 76 16)
-packages=(1 "Lampac" off
-          2 "Jackett" off
-          3 "Torrserver 111 OE" off
-          4 "Torrserver 118 OE" off
-          5 "Torrserver ${torrserver_git_ver} (latest)" off
-          6 "Midnight Commander" off
-          7 "Vifm" off )
-
-choices=$("${cmd[@]}" "${packages[@]}" 2>&1 >/dev/tty)
-
-for choice in $choices
-do
-case $choice in
-1)
-cd $HOME/debian/root
-cat <<\EOF> install.sh
 #install ASP.NET for Lampac
 wget https://dot.net/v1/dotnet-install.sh
 chmod 755 dotnet-install.sh
@@ -56,13 +39,13 @@ wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/upd
 cp example.conf init.conf
 chmod 755 -R /home/lampac
 EOF
-proot-distro login debian -- bash install.sh
-wait $!
-proot-distro login debian -- rm install.sh
-echo 'tmux new-session -d -s Lampac "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
-;;
-#install Jackett
-2)
+##############################################Lampac
+
+##############################################Jackett
+cat <<\EOF> jackett.sh
+#!/bin/bash
+VER="$(uname -m | grep aarch64)"
+
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
@@ -77,9 +60,14 @@ tar -xvf Jackett.Binaries.LinuxARM32.tar.gz
 rm Jackett.Binaries.LinuxARM32.tar.gz
 chmod 755 -R /home/Jackett
 fi
-;;
-#install Torrserver 111 OE
-3)
+EOT
+##############################################Jackett
+
+##############################################Torrserver 111OE
+cat <<\EOF> torrserver111.sh
+#!/bin/bash
+VER="$(uname -m | grep aarch64)"
+
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
@@ -100,9 +88,14 @@ mv 111OE_TorrServer-android-arm7 torrserver
 echo -n 111OE > vers.txt
 chmod 755 -R /home/torrserver
 fi
-;;
-#install Torrserver 118 OE
-4)
+EOT
+##############################################Torrserver 111OE
+
+##############################################Torrserver 118OE
+cat <<\EOF> torrserver118.sh
+#!/bin/bash
+VER="$(uname -m | grep aarch64)"
+
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
@@ -123,9 +116,14 @@ mv 118OE_TorrServer-android-arm7 torrserver
 echo -n 118OE > vers.txt
 chmod 755 -R /home/torrserver
 fi
-;;
-#install Torrserver latest
-5)
+EOT
+##############################################Torrserver 118OE
+
+##############################################Torrserver latest
+cat <<\EOF> torrserver.sh
+#!/bin/bash
+VER="$(uname -m | grep aarch64)"
+torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
@@ -146,22 +144,72 @@ mv TorrServer-android-arm7 torrserver
 echo -n $torrserver_git_ver > vers.txt
 chmod 755 -R /home/torrserver
 fi
+EOT
+##############################################Torrserver latest
+
+cd $HOME
+cat <<\EOF> install.sh
+#!/bin/bash
+VER="$(uname -m | grep aarch64)"
+torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
+cmd=(dialog --separate-output --title "$TITLE" --cancel-label "Exit" --checklist "Choose packages to install\nPress spacebar to select multiple" 22 76 16)
+packages=(1 "Lampac" off
+          2 "Jackett" off
+          3 "Torrserver 111 OE" off
+          4 "Torrserver 118 OE" off
+          5 "Torrserver ${torrserver_git_ver} (latest)" off
+          6 "Midnight Commander" off
+          7 "Vifm" off )
+
+choices=$("${cmd[@]}" "${packages[@]}" 2>&1 >/dev/tty)
+
+for choice in $choices
+do
+case $choice in
+1)
+#install Lampac
+proot-distro login debian -- bash /root/updater/lampac.sh
+wait $!
+echo 'tmux new-session -d -s Lampac "proot-distro login debian -- bash /root/lampac_updater.sh"'  >> .bashrc
 ;;
-#install Midnight Commander
+
+2)
+#install Jackett
+proot-distro login debian -- bash /root/updater/jackett.sh
+wait $!
+echo 'tmux new-session -d -s Jackett "proot-distro login debian -- /home/Jackett/./jackett"'  >> .bashrc
+;;
+3)
+#install Torrserver 111 OE
+proot-distro login debian -- bash /root/updater/torrserver111.sh
+wait $!
+echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+;;
+4)
+#install Torrserver 118 OE
+proot-distro login debian -- bash /root/updater/torrserver118.sh
+wait $!
+echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+;;
+5)
+#install Torrserver latest
+proot-distro login debian -- bash /root/updater/torrserver.sh
+wait $!
+echo 'tmux new-session -d -s Torrserver "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -k -d /home/torrserver_config"'  >> .bashrc
+;;
 6)
-apt-get install mc -y
+#install Midnight Commander
+apt install mc -y
 ;;
-#install Vifm
 7)
-apt-get install vifm -y
+#install Vifm
+apt install vifm -y
 ;;
 esac
 done
 clear
 EOF
-bash install.sh
-wait $!
-rm install.sh
+
 
 ;;
 Uninstall)
@@ -234,5 +282,6 @@ esac
 echo -e "${NC}${GREEN}***####Done####***"
 echo -e "${RED}close Termux and open it again to apply changes!"
 echo -e "${GREEN}type to close: ${RED}exit${NC}"
+bash .bashrc
 exit
 done
