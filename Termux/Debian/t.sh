@@ -257,8 +257,6 @@ rm install.sh
 ;;
 Uninstall)
 
-cd $HOME/debian/home/updater
-
 cat <<\EOF> uninstall.sh
 #!/bin/bash
 lampac_ver="$(cat /home/lampac/vers.txt)"
