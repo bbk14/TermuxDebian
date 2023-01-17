@@ -36,13 +36,14 @@ wget https://github.com/immisterio/Lampac/releases/latest/download/publish.zip
 unzip -o publish.zip
 rm -f publish.zip
 wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/update.sh
-if [ -f "/home/config/intit.conf" ];
+if [ -f "/home/config/init.conf" ];
 then
-mv /home/config/intit.conf /home/lampac/intit.conf
+mv /home/config/init.conf /home/lampac/init.conf
 else
 cp example.conf init.conf
 fi
 chmod 755 -R /home/lampac
+apt-get clean
 EOF
 ############################ Lampac inststall end
 
@@ -68,6 +69,7 @@ rm Jackett.Binaries.LinuxARM32.tar.gz
 echo -n $jackett_git_ver > /home/Jackett/vers.txt
 chmod 755 -R /home/Jackett
 fi
+apt-get clean
 EOF
 ############################ Jackett inststall end
 
@@ -98,6 +100,7 @@ echo -n 111OE > vers.txt
 chmod 755 -R /home/torrserver
 chmod 755 -R /home/torrserver_config
 fi
+apt-get clean
 EOF
 ############################ Torrserver 111OE inststall end
 
@@ -128,6 +131,7 @@ echo -n 118OE > vers.txt
 chmod 755 -R /home/torrserver
 chmod 755 -R /home/torrserver_config
 fi
+apt-get clean
 EOF
 ############################ Torrserver 118OE inststall end
 
@@ -158,6 +162,7 @@ echo -n $torrserver_git_ver > vers.txt
 chmod 755 -R /home/torrserver
 chmod 755 -R /home/torrserver_config
 fi
+apt-get clean
 EOF
 ############################ Torrserver latest inststall end
 
@@ -258,48 +263,58 @@ rm install.sh
 Uninstall)
 cd $HOME/debian/home/updater
 
-cat <<\EOF>> ulampac.sh
+cat <<\EOF>> lampac.sh
 #!/bin/bash/
 killall dotnet
+rm /usr/bin/dotnet
+rm -R /usr/share/dotnet*
 cd /home
 rm -R lampac*
 rm lampac_updater.sh
-rm -rf init.conf
+rm -rf /home/config/init.conf
+apt-get clean
 EOF
 
-cat <<\EOF>> ulampacs.sh
+cat <<\EOF>> lampacs.sh
 #!/bin/bash/
 killall dotnet
+rm /usr/bin/dotnet
+rm -R /usr/share/dotnet*
 cd /home
 rm lampac_updater.sh
 mv /home/lampac/init.conf /home/config/init.conf
 rm -R lampac*
+apt-get clean
 EOF
 
-cat <<\EOF>> ujackett.sh
+cat <<\EOF>> jackett.sh
 #!/bin/bash/
 killall jackett
 rm -R /home/Jackett*
 rm -R /root/.config/Jackett*
+apt-get clean
 EOF
 
-cat <<\EOF>> ujacketts.sh
+cat <<\EOF>> jacketts.sh
 #!/bin/bash/
 killall jackett
 rm -R /home/Jackett*
+apt-get clean
 EOF
 
-cat <<\EOF>> utorrserver.sh
+cat <<\EOF>> torrserver.sh
 #!/bin/bash/
 killall torrserver
 rm -R /home/torrserver*
 rm -R /home/config/torrserver*
+apt-get clean
 EOF
 
-cat <<\EOF>> utorrservers.sh
+cat <<\EOF>> torrservers.sh
 #!/bin/bash/
 killall torrserver
 rm -R /home/torrserver*
+apt-get clean
 EOF
 
 cd $HOME
@@ -327,27 +342,27 @@ for choice in $choices
 do
 case $choice in
 1)
-proot-distro login debian -- bash /home/updater/ulampac.sh
+proot-distro login debian -- bash /home/updater/lampac.sh
 sed -i '/lampac/d' ~/.bashrc
 ;;
 2)
-proot-distro login debian -- bash /home/updater/ulampacs.sh
+proot-distro login debian -- bash /home/updater/lampacs.sh
 sed -i '/lampac/d' ~/.bashrc
 ;;
 3)
-proot-distro login debian -- bash /home/updater/ujackett.sh
+proot-distro login debian -- bash /home/updater/jackett.sh
 sed -i '/jackett/d' ~/.bashrc
 ;;
 4)
-proot-distro login debian -- bash /home/updater/ujacketts.sh
+proot-distro login debian -- bash /home/updater/jacketts.sh
 sed -i '/jackett/d' ~/.bashrc
 ;;
 5)
-proot-distro login debian -- bash /home/updater/utorrserver.sh
+proot-distro login debian -- bash /home/updater/torrserver.sh
 sed -i '/torrserver/d' ~/.bashrc
 ;;
 6)
-proot-distro login debian -- bash /home/updater/utorrservers.sh
+proot-distro login debian -- bash /home/updater/torrservers.sh
 sed -i '/torrserver/d' ~/.bashrc
 ;;
 7)
