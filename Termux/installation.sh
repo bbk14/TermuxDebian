@@ -44,5 +44,9 @@ bash packages.sh
 EOF
 #clean packages cache Termux
 pkg clean
-#start install packages
-source ~/.bashrc
+#Done
+echo ""
+echo "#############################################"
+echo -e "${GREEN}***####Done####***"
+echo -e "${RED}close Termux and open it again to apply changes!"
+echo -e "${GREEN}type to close: ${RED}exit${NC}"
