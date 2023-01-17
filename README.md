@@ -6,7 +6,7 @@
 Download Termux from <a href="https://github.com/termux/termux-app/releases" target="_blank">GitHub official</a>  or  <a href="https://f-droid.org/ru/packages/com.termux/" target="_blank">F-Droid</a>
 <br>
 <br>
-Copy bash setup shell script and run it in Termux
+<b>Copy</b> bash setup shell script and <b>run it in Termux</b>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>curl -s https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/install.sh | bash
 </code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git submodule update --init --recursive" tabindex="0" role="button" style="display: inherit;">
@@ -18,3 +18,6 @@ Copy bash setup shell script and run it in Termux
 </svg>
     </clipboard-copy>
   </div></div>
+After installation <b>restart Termux</b>
+
+<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" height="528" width="265" style="max-width: 100%;">
