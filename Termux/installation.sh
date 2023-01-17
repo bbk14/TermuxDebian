@@ -11,6 +11,8 @@ curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/tmux
 chmod 755 tmux_off.sh
 curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh
 chmod 755 packages.sh
+curl -s https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/updater.sh
+chmod 755 updater.sh
 #start Debian
 proot-distro login debian
 #install packages in Debian
@@ -34,8 +36,7 @@ chmod 755 pac.sh
 cat <<\EOF>> .bashrc
 pkg clean
 bash tmux_off.sh
-curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh
-curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh
+bash updater.sh
 tmux new-session -d -s pac bash pac.sh
 tmux select-layout -t pac tiled
 tmux split-window -h -p 70 -t pac:0 htop
