@@ -36,9 +36,9 @@ wget https://github.com/immisterio/Lampac/releases/latest/download/publish.zip
 unzip -o publish.zip
 rm -f publish.zip
 wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/update.sh
-if [ -f "/home/intit.conf" ];
+if [ -f "/home/config/intit.conf" ];
 then
-mv /home/intit.conf /home/lampac/intit.conf
+mv /home/config/intit.conf /home/lampac/intit.conf
 else
 cp example.conf init.conf
 fi
@@ -79,7 +79,7 @@ VER="$(uname -m | grep aarch64)"
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
-mkdir torrserver_config
+mkdir /home/config/torrserver
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/7kos493fhikfs74/111OE_TorrServer-android-arm64
@@ -89,7 +89,7 @@ chmod 755 -R /home/torrserver
 chmod 755 -R /home/torrserver_config
 else
 cd /home
-mkdir torrserver_config
+mkdir /home/config/torrserver
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/yu2pyewdndcex5i/111OE_TorrServer-android-arm7
@@ -109,7 +109,7 @@ VER="$(uname -m | grep aarch64)"
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
-mkdir torrserver_config
+mkdir /home/config/torrserver
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/tt5i6lvm2mjsi1g/118OE_TorrServer-android-arm64
@@ -119,7 +119,7 @@ chmod 755 -R /home/torrserver
 chmod 755 -R /home/torrserver_config
 else
 cd /home
-mkdir torrserver_config
+mkdir /home/config/torrserver
 mkdir torrserver
 cd /home/torrserver
 wget https://www.dropbox.com/s/r7u8f13didnkatz/118OE_TorrServer-android-arm7
@@ -139,7 +139,7 @@ torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/rel
 if [[ "$VER" == "aarch64" ]];
 then
 cd /home
-mkdir torrserver_config
+mkdir /home/config/torrserver
 mkdir torrserver
 cd /home/torrserver
 wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-android-arm64
@@ -149,7 +149,7 @@ chmod 755 -R /home/torrserver
 chmod 755 -R /home/torrserver_config
 else
 cd /home
-mkdir torrserver_config
+mkdir /home/config/torrserver
 mkdir torrserver
 cd /home/torrserver
 wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-android-arm7
@@ -208,7 +208,7 @@ proot-distro login debian -- bash /home/updater/torrserver111.sh
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
-grep -qF -- 'torrserver' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/torrserver_config"'  >> .bashrc
+grep -qF -- 'torrserver' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/config/torrserver"'  >> .bashrc
 fi
 ;;
 4)
@@ -217,7 +217,7 @@ proot-distro login debian -- bash /home/updater/torrserver118.sh
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
-grep -qF -- 'torrserver' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/torrserver_config"'  >> .bashrc
+grep -qF -- 'torrserver' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/config/torrserver"'  >> .bashrc
 fi
 ;;
 5)
@@ -226,7 +226,7 @@ proot-distro login debian -- bash /home/updater/torrserver.sh
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
 then
-grep -qF -- 'torrserver' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/torrserver_config"'  >> .bashrc
+grep -qF -- 'torrserver' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 "proot-distro login debian -- /home/torrserver/torrserver -p 8091 -a -d /home/config/torrserver"'  >> .bashrc
 fi
 ;;
 6)
@@ -272,7 +272,7 @@ cat <<\EOF>> ulampacs.sh
 killall dotnet
 cd /home
 rm lampac_updater.sh
-mv /home/lampac/init.conf /home/init.conf
+mv /home/lampac/init.conf /home/config/init.conf
 rm -R lampac*
 EOF
 
@@ -293,7 +293,7 @@ cat <<\EOF>> utorrserver.sh
 #!/bin/bash/
 killall torrserver
 rm -R /home/torrserver*
-rm -R /home/torrserver_config*
+rm -R /home/config/torrserver*
 EOF
 
 cat <<\EOF>> utorrservers.sh
