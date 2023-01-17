@@ -11,7 +11,7 @@ curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/tmux
 chmod 755 tmux_off.sh
 curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh
 chmod 755 packages.sh
-curl -s https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/updater.sh
+curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/updater.sh
 chmod 755 updater.sh
 #start Debian
 proot-distro login debian
