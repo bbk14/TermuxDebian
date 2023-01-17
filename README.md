@@ -20,8 +20,7 @@ Download Termux from <a href="https://github.com/termux/termux-app/releases" tar
   </div></div>
 After installation <b>restart Termux</b><br>
 
-<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" style="max-width: 100%;">
-<br> You can choose what packages install or uninstall them later
+<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" style="max-width: 50%;">
 
 # What inside:
 ( All rights to programs, scripts and packages belong to their respective owners )
@@ -29,3 +28,7 @@ After installation <b>restart Termux</b><br>
 1. <a href="https://github.com/immisterio/Lampac" target="_blank">Lampac</a>
 2. <a href="https://github.com/Jackett/Jackett" target="_blank">Jackett</a>
 3. <a href="https://github.com/YouROK/TorrServer" target="_blank">Torrserver</a>
+
+<br> You can choose what packages install or uninstall them later
+<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/install.png" style="max-width: 50%;">
+<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/uninstall.png" style="max-width: 50%;">
