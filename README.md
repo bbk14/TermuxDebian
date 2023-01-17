@@ -22,6 +22,7 @@ After installation <b>restart Termux</b><br>
 
 <img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" style="max-width: 100%;">
 <br> You can choose what packages install or uninstall them later
+
 # What inside:
 ( All rights to programs, scripts and packages belong to their respective owners )
 
