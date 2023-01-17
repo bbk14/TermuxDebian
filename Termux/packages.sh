@@ -367,17 +367,17 @@ sed -i '/torrserver/d' ~/.bashrc
 ;;
 7)
 killall tor
-apt autoclean -y tor
+apt autoremove -y tor
 pkg clean
 ;;
 8)
 killall mc
-apt autoclean -y mc
+apt autoremove -y mc
 pkg clean
 ;;
 9)
 killall vifm
-apt autoclean vifm -y
+apt autoremove vifm -y
 pkg clean
 ;;
 esac
