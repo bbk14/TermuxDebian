@@ -7,7 +7,7 @@ Download Termux from <a href="https://github.com/termux/termux-app/releases" tar
 <br>
 <br>
 <b>Copy</b> bash setup shell script and <b>run it in Termux</b>
-<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>curl -s https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/install.sh | bash
+<div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>curl -s https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/installation.sh | bash
 </code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn js-clipboard-copy m-2 p-0 tooltipped-no-delay" data-copy-feedback="Copied!" data-tooltip-direction="w" value="git submodule update --init --recursive" tabindex="0" role="button" style="display: inherit;">
       <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-copy js-clipboard-copy-icon m-2">
