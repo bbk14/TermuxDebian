@@ -36,9 +36,9 @@ wget https://github.com/immisterio/Lampac/releases/latest/download/publish.zip
 unzip -o publish.zip
 rm -f publish.zip
 wget https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/Debian/update.sh
-if [ -f "/home/lampac/intit.conf" ];
+if [ -f "/home/intit.conf" ];
 then
-echo ""
+mv /home/intit.conf /home/lampac/intit.conf
 else
 cp example.conf init.conf
 fi
@@ -58,14 +58,14 @@ cd /home
 wget https://github.com/Jackett/Jackett/releases/latest/download/Jackett.Binaries.LinuxARM64.tar.gz
 tar -xvf Jackett.Binaries.LinuxARM64.tar.gz
 rm Jackett.Binaries.LinuxARM64.tar.gz
-echo -n $jackett_git_ver > vers.txt
+echo -n $jackett_git_ver > /home/Jackett/vers.txt
 chmod 755 -R /home/Jackett
 else
 cd /home
 wget https://github.com/Jackett/Jackett/releases/latest/download/Jackett.Binaries.LinuxARM32.tar.gz
 tar -xvf Jackett.Binaries.LinuxARM32.tar.gz
 rm Jackett.Binaries.LinuxARM32.tar.gz
-echo -n $jackett_git_ver > vers.txt
+echo -n $jackett_git_ver > /home/Jackett/vers.txt
 chmod 755 -R /home/Jackett
 fi
 EOF
@@ -250,12 +250,58 @@ clear
 EOF
 bash install.sh
 cd $HOME/debian/home/
-rm updater/*
+rm -rf updater/*
 cd $HOME
 rm install.sh
 
 ;;
 Uninstall)
+cd $HOME/debian/home/updater
+cat <<\EOF> lampac.sh
+#!/bin/bash/
+killall dotnet
+cd /home
+rm -R lampac*
+rm lampac_updater.sh
+rm -rf init.conf
+EOF
+
+cat <<\EOF> lampacs.sh
+#!/bin/bash/
+killall dotnet
+cd /home
+rm lampac_updater.sh
+mv /home/lampac/init.conf /home/init.conf
+rm -R lampac*
+EOF
+
+cat <<\EOF> jackett.sh
+#!/bin/bash/
+killall jackett
+rm -R /home/Jackett*
+rm -R /root/.config/Jackett*
+EOF
+
+cat <<\EOF> jacketts.sh
+#!/bin/bash/
+killall jackett
+rm -R /home/Jackett*
+EOF
+
+cat <<\EOF> torrserver.sh
+#!/bin/bash/
+killall torrserver
+rm -R /home/torrserver*
+rm -R /home/torrserver_config*
+EOF
+
+cat <<\EOF> torrservers.sh
+#!/bin/bash/
+killall torrserver
+rm -R /home/torrserver*
+EOF
+
+cd $HOME
 
 cat <<\EOF> uninstall.sh
 #!/bin/bash
@@ -280,45 +326,27 @@ for choice in $choices
 do
 case $choice in
 1)
-proot-distro login debian -- killall dotnet
-cd $HOME/debian/home/
-rm -R lampac*
-rm lampac_updater.sh
+proot-distro login debian -- bash /home/updater/lampac.sh
 sed -i '/lampac/d' ~/.bashrc
 ;;
 2)
-proot-distro login debian -- killall dotnet
-cd $HOME/debian/home/lampac/
-rm -R -v !("init.conf")
-cd $HOME/debian/home/
-rm lampac_updater.sh
+proot-distro login debian -- bash /home/updater/lampacs.sh
 sed -i '/lampac/d' ~/.bashrc
 ;;
 3)
-proot-distro login debian -- killall jackett
-cd $HOME/debian/home/
-rm -R Jackett*
-cd $HOME/debian/root/
-rm -R /.config/Jackett*
+proot-distro login debian -- bash /home/updater/jackett.sh
 sed -i '/jackett/d' ~/.bashrc
 ;;
 4)
-proot-distro login debian -- killall jackett
-cd $HOME/debian/home/
-rm -R Jackett*
+proot-distro login debian -- bash /home/updater/jacketts.sh
 sed -i '/jackett/d' ~/.bashrc
 ;;
 5)
-proot-distro login debian -- killall torrserver
-cd $HOME/debian/home/
-rm -R torrserver*
+proot-distro login debian -- bash /home/updater/torrserver.sh
 sed -i '/torrserver/d' ~/.bashrc
 ;;
 6)
-proot-distro login debian -- killall torrserver
-cd $HOME/debian/home/
-rm -R torrserver*
-rm -R torrserver_config*
+proot-distro login debian -- bash /home/updater/torrservers.sh
 sed -i '/torrserver/d' ~/.bashrc
 ;;
 7)
@@ -342,7 +370,7 @@ clear
 EOF
 bash uninstall.sh
 cd $HOME/debian/home/
-rm updater/*
+rm -rf updater/*
 cd $HOME
 rm uninstall.sh
 ;;
