@@ -257,7 +257,8 @@ rm install.sh
 ;;
 Uninstall)
 cd $HOME/debian/home/updater
-cat <<\EOF> lampac.sh
+
+cat <<\EOF> ulampac.sh
 #!/bin/bash/
 killall dotnet
 cd /home
@@ -266,7 +267,7 @@ rm lampac_updater.sh
 rm -rf init.conf
 EOF
 
-cat <<\EOF> lampacs.sh
+cat <<\EOF> ulampacs.sh
 #!/bin/bash/
 killall dotnet
 cd /home
@@ -275,27 +276,27 @@ mv /home/lampac/init.conf /home/init.conf
 rm -R lampac*
 EOF
 
-cat <<\EOF> jackett.sh
+cat <<\EOF> ujackett.sh
 #!/bin/bash/
 killall jackett
 rm -R /home/Jackett*
 rm -R /root/.config/Jackett*
 EOF
 
-cat <<\EOF> jacketts.sh
+cat <<\EOF> ujacketts.sh
 #!/bin/bash/
 killall jackett
 rm -R /home/Jackett*
 EOF
 
-cat <<\EOF> torrserver.sh
+cat <<\EOF> utorrserver.sh
 #!/bin/bash/
 killall torrserver
 rm -R /home/torrserver*
 rm -R /home/torrserver_config*
 EOF
 
-cat <<\EOF> torrservers.sh
+cat <<\EOF> utorrservers.sh
 #!/bin/bash/
 killall torrserver
 rm -R /home/torrserver*
@@ -326,27 +327,27 @@ for choice in $choices
 do
 case $choice in
 1)
-proot-distro login debian -- bash /home/updater/lampac.sh
+proot-distro login debian -- bash /home/updater/ulampac.sh
 sed -i '/lampac/d' ~/.bashrc
 ;;
 2)
-proot-distro login debian -- bash /home/updater/lampacs.sh
+proot-distro login debian -- bash /home/updater/ulampacs.sh
 sed -i '/lampac/d' ~/.bashrc
 ;;
 3)
-proot-distro login debian -- bash /home/updater/jackett.sh
+proot-distro login debian -- bash /home/updater/ujackett.sh
 sed -i '/jackett/d' ~/.bashrc
 ;;
 4)
-proot-distro login debian -- bash /home/updater/jacketts.sh
+proot-distro login debian -- bash /home/updater/ujacketts.sh
 sed -i '/jackett/d' ~/.bashrc
 ;;
 5)
-proot-distro login debian -- bash /home/updater/torrserver.sh
+proot-distro login debian -- bash /home/updater/utorrserver.sh
 sed -i '/torrserver/d' ~/.bashrc
 ;;
 6)
-proot-distro login debian -- bash /home/updater/torrservers.sh
+proot-distro login debian -- bash /home/updater/utorrservers.sh
 sed -i '/torrserver/d' ~/.bashrc
 ;;
 7)
