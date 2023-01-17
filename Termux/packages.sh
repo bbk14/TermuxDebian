@@ -88,7 +88,7 @@ wget https://www.dropbox.com/s/7kos493fhikfs74/111OE_TorrServer-android-arm64
 mv 111OE_TorrServer-android-arm64 torrserver
 echo -n 111OE > vers.txt
 chmod 755 -R /home/torrserver
-chmod 755 -R /home/torrserver_config
+chmod 755 -R /home/config/torrserver
 else
 cd /home
 mkdir /home/config/torrserver
@@ -98,7 +98,7 @@ wget https://www.dropbox.com/s/yu2pyewdndcex5i/111OE_TorrServer-android-arm7
 mv 111OE_TorrServer-android-arm7 torrserver
 echo -n 111OE > vers.txt
 chmod 755 -R /home/torrserver
-chmod 755 -R /home/torrserver_config
+chmod 755 -R /home/config/torrserver
 fi
 apt-get clean
 EOF
@@ -119,7 +119,7 @@ wget https://www.dropbox.com/s/tt5i6lvm2mjsi1g/118OE_TorrServer-android-arm64
 mv 118OE_TorrServer-android-arm64 torrserver
 echo -n 118OE > vers.txt
 chmod 755 -R /home/torrserver
-chmod 755 -R /home/torrserver_config
+chmod 755 -R /home/config/torrserver
 else
 cd /home
 mkdir /home/config/torrserver
@@ -129,7 +129,7 @@ wget https://www.dropbox.com/s/r7u8f13didnkatz/118OE_TorrServer-android-arm7
 mv 118OE_TorrServer-android-arm7 torrserver
 echo -n 118OE > vers.txt
 chmod 755 -R /home/torrserver
-chmod 755 -R /home/torrserver_config
+chmod 755 -R /home/config/torrserver
 fi
 apt-get clean
 EOF
@@ -150,7 +150,7 @@ wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-an
 mv TorrServer-android-arm64 torrserver
 echo -n $torrserver_git_ver > vers.txt
 chmod 755 -R /home/torrserver
-chmod 755 -R /home/torrserver_config
+chmod 755 -R /home/config/torrserver
 else
 cd /home
 mkdir /home/config/torrserver
@@ -160,7 +160,7 @@ wget https://github.com/YouROK/TorrServer/releases/latest/download/TorrServer-an
 mv TorrServer-android-arm7 torrserver
 echo -n $torrserver_git_ver > vers.txt
 chmod 755 -R /home/torrserver
-chmod 755 -R /home/torrserver_config
+chmod 755 -R /home/config/torrserver
 fi
 apt-get clean
 EOF
