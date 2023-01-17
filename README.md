@@ -1,11 +1,11 @@
 # TermuxDebian
 <b>For home media on your:</b> smartphone, tablet, tv-box or android smart tv!
 <br><b>Supports:</b> Android 32-bit & 64-bit
-About <a href="https://wiki.termux.com/wiki/Main_Page" target="_blank">Termux</a>
+<br<About <a href="https://wiki.termux.com/wiki/Main_Page" target="_blank">Termux</a>
 # Installation
 Download Termux from <a href="https://github.com/termux/termux-app/releases" target="_blank">GitHub official</a> or <a href="https://f-droid.org/ru/packages/com.termux/" target="_blank">F-Droid</a>
-
-
+<br>
+<br>
 Copy bash setup shell script and run it in Termux
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>curl -s https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/install.sh | bash
 </code></pre><div class="zeroclipboard-container position-absolute right-0 top-0">
