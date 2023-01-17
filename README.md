@@ -18,9 +18,10 @@ Download Termux from <a href="https://github.com/termux/termux-app/releases" tar
 </svg>
     </clipboard-copy>
   </div></div>
-After installation <b>restart Termux</b><br>
+<br> After installation <b>restart Termux</b> <br>
 
-<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" style="max-width: 25%;">
+
+<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" style="max-height: 50%;">
 
 # What inside:
 ( All rights to programs, scripts and packages belong to their respective owners )
