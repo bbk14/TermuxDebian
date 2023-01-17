@@ -35,16 +35,14 @@ echo -e "${BLUE}Torrserver running in background ${GREEN}ip:8091"
 echo -e "${BLUE}info: ${RED}https://github.com/YouROK/TorrServer"
 fi
 #check if Tor proxy is installed
-if dpkg -s tor
+if [ -d "$PREFIX/etc/tor" ];
 then
 echo ""
 echo -e "${BLUE}Tor proxy SOCKS5 running in background ${GREEN}ip:9050"
 echo -e "${BLUE}info: ${RED}https://support.torproject.org/glossary/proxy/"
-else
-echo ""
 fi
 #check if Midnight Commander is installed
-if dpkg -s mc
+if [ -d "$PREFIX/etc/mc" ];
 then
 echo ""
 echo -e "${BLUE}Midnight Commander:"
@@ -55,11 +53,9 @@ echo -e "${BLUE}run in Termux System folder:"
 echo -e " ${YELLOW}cd $PREFIX && mc"
 echo -e "${BLUE}run in Debian System folder:"
 echo -e " ${YELLOW}cd $HOME/debian/ && mc"
-else
-echo ""
 fi
 #check if Vifm is installed
-if dpkg -s vifm
+if [ -d "$PREFIX/etc/vifm" ];
 then
 echo ""
 echo -e "${BLUE}run Vifm:"
