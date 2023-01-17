@@ -66,8 +66,6 @@ echo -e "${BLUE}run in Termux System folder:"
 echo -e " ${YELLOW}cd $PREFIX && vifm"
 echo -e "${BLUE}run in Debian System folder:"
 echo -e " ${YELLOW}cd $HOME/debian/ && vifm"
-else
-echo ""
 fi
 #command list
 echo ""
