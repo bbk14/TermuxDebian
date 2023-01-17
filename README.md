@@ -30,6 +30,10 @@ Download Termux from <a href="https://github.com/termux/termux-app/releases" tar
 2. <a href="https://github.com/Jackett/Jackett" target="_blank">Jackett</a>
 3. <a href="https://github.com/YouROK/TorrServer" target="_blank">Torrserver</a>
 
-<br> You can choose what packages <b>install</b> or <b>uninstall</b> them later:<br>
+<br> You can choose what packages <b>install</b> or <b>uninstall</b> them later<br>
+*Feel free write me to add some packages if you want, if it possible I add this in future updates. You can install it without reinstall<br>
+
+
 <img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/install.png" style="max-width: 50%;">
 <img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/uninstall.png" style="max-width: 50%;">
+<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/pac.png" style="max-width: 50%;">
