@@ -398,14 +398,13 @@ echo -e "${RED}Invalid input $REPLY
 ${PURPLE}*configuration apply immediately and autorestart after  changes ${GREEN}Install ${NC}or ${RED}Uninstall"
 ;;
 esac
-#autorun
+#apply changes
 sed -i '/bash note.sh/d' .bashrc
 sed -i '/bash packages.sh/d' .bashrc
 cat <<EOF>> .bashrc
 bash note.sh
 bash packages.sh
 EOF
-#autorun
-bash .bashrc
+source ~/.bashrc
 exit
 done
