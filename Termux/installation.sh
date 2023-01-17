@@ -45,5 +45,4 @@ EOF
 #clean packages cache Termux
 pkg clean
 #start install packages
-bash note.sh
-bash packages.sh
+~source /.bashrc
