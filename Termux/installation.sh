@@ -45,4 +45,4 @@ EOF
 #clean packages cache Termux
 pkg clean
 #start install packages
-~source /.bashrc
+source ~/.bashrc
