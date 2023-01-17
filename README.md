@@ -1,6 +1,6 @@
 # TermuxDebian
 <b>For home media on your:</b> smartphone, tablet, tv-box or android smart tv!
-<b>Supports:</b> Android 32-bit & 64-bit
+<br><b>Supports:</b> Android 32-bit & 64-bit
 
 1. F-Droid: https://f-droid.org/en/
 2. F-Droid: Termux
