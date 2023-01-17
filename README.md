@@ -20,4 +20,4 @@ Download Termux from <a href="https://github.com/termux/termux-app/releases" tar
   </div></div>
 After installation <b>restart Termux</b>
 
-<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" height="528" width="265" style="max-width: 100%;">
+<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" style="max-width: 100%;">
