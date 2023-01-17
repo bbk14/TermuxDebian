@@ -15,7 +15,7 @@ Install)
 ############################ Make scripts for install in Debian
 cd $HOME/debian/home/updater
 ############################ Lampac inststall start
-cat <<\EOF> lampac.sh
+cat <<\EOF>> lampac.sh
 #!/bin/bash
 #install ASP.NET for Lampac
 wget https://dot.net/v1/dotnet-install.sh
@@ -47,7 +47,7 @@ EOF
 ############################ Lampac inststall end
 
 ############################ Jackett inststall start
-cat <<\EOF> jackett.sh
+cat <<\EOF>> jackett.sh
 #!/bin/bash
 jackett_git_ver="$(curl -s https://api.github.com/repos/Jackett/Jackett/releases/latest | grep tag_name | sed s/[^.0-9]//g)"
 VER="$(uname -m | grep aarch64)"
@@ -72,7 +72,7 @@ EOF
 ############################ Jackett inststall end
 
 ############################ Torrserver 111OE inststall start
-cat <<\EOF> torrserver111.sh
+cat <<\EOF>> torrserver111.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
 
@@ -102,7 +102,7 @@ EOF
 ############################ Torrserver 111OE inststall end
 
 ############################ Torrserver 118OE inststall start
-cat <<\EOF> torrserver118.sh
+cat <<\EOF>> torrserver118.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
 
@@ -132,7 +132,7 @@ EOF
 ############################ Torrserver 118OE inststall end
 
 ############################ Torrserver latest inststall start
-cat <<\EOF> torrserver.sh
+cat <<\EOF>> torrserver.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
 torrserver_git_ver="$(curl -s https://api.github.com/repos/YouROK/TorrServer/releases/latest | grep tag_name | sed s/[^0-9]//g)"
@@ -162,7 +162,7 @@ EOF
 ############################ Torrserver latest inststall end
 
 cd $HOME
-cat <<\EOF> install.sh
+cat <<\EOF>> install.sh
 #!/bin/bash
 VER="$(uname -m | grep aarch64)"
 lampac_git_ver="$(curl -s https://api.github.com/repos/immisterio/Lampac/releases/latest | grep tag_name | sed s/[^0-9]//g)"
@@ -258,7 +258,7 @@ rm install.sh
 Uninstall)
 cd $HOME/debian/home/updater
 
-cat <<\EOF> ulampac.sh
+cat <<\EOF>> ulampac.sh
 #!/bin/bash/
 killall dotnet
 cd /home
@@ -267,7 +267,7 @@ rm lampac_updater.sh
 rm -rf init.conf
 EOF
 
-cat <<\EOF> ulampacs.sh
+cat <<\EOF>> ulampacs.sh
 #!/bin/bash/
 killall dotnet
 cd /home
@@ -276,27 +276,27 @@ mv /home/lampac/init.conf /home/init.conf
 rm -R lampac*
 EOF
 
-cat <<\EOF> ujackett.sh
+cat <<\EOF>> ujackett.sh
 #!/bin/bash/
 killall jackett
 rm -R /home/Jackett*
 rm -R /root/.config/Jackett*
 EOF
 
-cat <<\EOF> ujacketts.sh
+cat <<\EOF>> ujacketts.sh
 #!/bin/bash/
 killall jackett
 rm -R /home/Jackett*
 EOF
 
-cat <<\EOF> utorrserver.sh
+cat <<\EOF>> utorrserver.sh
 #!/bin/bash/
 killall torrserver
 rm -R /home/torrserver*
 rm -R /home/torrserver_config*
 EOF
 
-cat <<\EOF> utorrservers.sh
+cat <<\EOF>> utorrservers.sh
 #!/bin/bash/
 killall torrserver
 rm -R /home/torrserver*
@@ -304,7 +304,7 @@ EOF
 
 cd $HOME
 
-cat <<\EOF> uninstall.sh
+cat <<\EOF>> uninstall.sh
 #!/bin/bash
 lampac_ver="$(cat /home/lampac/vers.txt)"
 jackett_ver="$(cat /home/Jackett/vers.txt)"
@@ -386,10 +386,10 @@ esac
 #autorun
 sed -i '/bash note.sh/d' .bashrc
 sed -i '/bash packages.sh/d' .bashrc
-cat <<EOT>> .bashrc
+cat <<EOF>> .bashrc
 bash note.sh
 bash packages.sh
-EOT
+EOF
 #autorun
 bash .bashrc
 exit
