@@ -16,7 +16,7 @@ echo ""
 echo -e "${BLUE}Lampac running in background ${GREEN}ip:9118"
 echo -e "${BLUE}info: ${RED}https://github.com/immisterio/Lampac"
 echo -e "${BLUE}change Lampac config:"
-echo -e " ${YELLOW}proot-distro login debian -- nano /home/lampac/init.conf"
+echo -e " ${YELLOW}nano \$HOME/debian/home/lampac/init.conf"
 fi
 #check if Jackett is installed
 if proot-distro login debian -- [ -d "/home/Jackett" ];
@@ -25,7 +25,7 @@ echo ""
 echo -e "${BLUE}Jackett running in background ${GREEN}ip:9117"
 echo -e "${BLUE}info: ${RED}https://github.com/Jackett/Jackett"
 echo -e "${BLUE}change APIKey Jackett:"
-echo -e " ${YELLOW}proot-distro login debian -- nano /root/.config/Jackett/ServerConfig.json${NC}"
+echo -e " ${YELLOW}nano \$HOME/debian/root/.config/Jackett/ServerConfig.json${NC}"
 fi
 #check if Torrserver is installed
 if proot-distro login debian -- [ -d "/home/torrserver" ];
@@ -41,7 +41,7 @@ echo ""
 echo -e "${BLUE}Tor proxy SOCKS5 running in background ${GREEN}ip:9050"
 echo -e "${BLUE}info: ${RED}https://support.torproject.org/glossary/proxy/"
 echo -e "${BLUE}change preffer counrty in Tor:"
-echo -e " ${YELLOW}nano $PREFIX/etc/tor/torrc"
+echo -e " ${YELLOW}nano \$PREFIX/etc/tor/torrc"
 echo -e "${BLUE}add one or more country:"
 echo -e " ${YELLOW}ExitNodes {us}\n StrictNodes 1"
 echo -e "${BLUE}or"
@@ -56,9 +56,9 @@ echo -e "${BLUE}info: ${RED}https://midnight-commander.org/wiki/doc/common/actio
 echo -e "${BLUE}run in Termux Home folder:"
 echo -e " ${YELLOW}mc"
 echo -e "${BLUE}run in Termux System folder:"
-echo -e " ${YELLOW}cd $PREFIX && mc"
+echo -e " ${YELLOW}cd \$PREFIX && mc"
 echo -e "${BLUE}run in Debian System folder:"
-echo -e " ${YELLOW}cd $HOME/debian/ && mc"
+echo -e " ${YELLOW}cd \$HOME/debian/ && mc"
 fi
 #check if Vifm is installed
 if [ -d "$PREFIX/etc/vifm" ];
@@ -69,9 +69,9 @@ echo -e "${BLUE}info: ${RED}https://vifm.info/cheatsheets.shtml"
 echo -e "${BLUE}run in Termux Home folder:"
 echo -e " ${YELLOW}vifm"
 echo -e "${BLUE}run in Termux System folder:"
-echo -e " ${YELLOW}cd $PREFIX && vifm"
+echo -e " ${YELLOW}cd \$PREFIX && vifm"
 echo -e "${BLUE}run in Debian System folder:"
-echo -e " ${YELLOW}cd $HOME/debian/ && vifm"
+echo -e " ${YELLOW}cd \$HOME/debian/ && vifm"
 fi
 #command list
 echo ""
