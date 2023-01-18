@@ -43,9 +43,9 @@ echo -e "${BLUE}info: ${RED}https://support.torproject.org/glossary/proxy/"
 echo -e "${BLUE}change preffer counrty in Tor:"
 echo -e " ${YELLOW}nano $PREFIX/etc/tor/torrc"
 echo -e "${BLUE}add one or more country:"
-echo -e " ${YELLOW}ExitNodes {us}\nStrictNodes 1"
+echo -e " ${YELLOW}ExitNodes {us}\n StrictNodes 1"
 echo -e "${BLUE}or"
-echo -e " ${YELLOW}ExitNodes {pl},{ge},{ca}\nStrictNodes 1"
+echo -e " ${YELLOW}ExitNodes {pl},{ge},{ca}\n StrictNodes 1"
 fi
 #check if Midnight Commander is installed
 if [ -d "$PREFIX/etc/mc" ];
