@@ -236,8 +236,7 @@ fi
 ;;
 6)
 #install Tor proxy
-pkg install openssl -y
-pkg install -f tor -y
+pkg upgrade && pkg install -f tor -y
 pkg clean
 if [ -d "$PREFIX/etc/tor" ];
 then
@@ -378,7 +377,7 @@ sed -i '/torrserver/d' ~/.bashrc
 killall tor
 cd $PREFIX/etc
 rm -R tor*
-apt autoremove -y tor
+apt autoremove tor -y
 pkg clean
 sed -i '/-t pac:0 tor/d' ~/.bashrc
 ;;
@@ -386,7 +385,7 @@ sed -i '/-t pac:0 tor/d' ~/.bashrc
 killall mc
 cd $PREFIX/etc
 rm -R mc*
-apt autoremove -y mc
+apt autoremove mc -y
 pkg clean
 sed -i '/alias mc="mc --nosubshell"/d' ~/.bashrc
 ;;
