@@ -42,8 +42,10 @@ echo -e "${BLUE}Tor proxy SOCKS5 running in background ${GREEN}ip:9050"
 echo -e "${BLUE}info: ${RED}https://support.torproject.org/glossary/proxy/"
 echo -e "${BLUE}change preffer counrty in Tor:"
 echo -e " ${YELLOW}nano $PREFIX/etc/tor/torrc"
-echo -e "${BLUE}add to the end one or more country:"
-echo -e " ${YELLOW}{us} or {pl},{ge},{ca} after add in new line: StrictNodes 1"
+echo -e "${BLUE}add one or more country:"
+echo -e " ${YELLOW}ExitNodes {us}\nStrictNodes 1"
+echo -e "${BLUE}or"
+echo -e " ${YELLOW}ExitNodes {pl},{ge},{ca}\nStrictNodes 1"
 fi
 #check if Midnight Commander is installed
 if [ -d "$PREFIX/etc/mc" ];
