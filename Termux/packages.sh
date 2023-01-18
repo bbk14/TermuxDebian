@@ -240,7 +240,7 @@ pkg update && pkg install -y tor
 pkg clean
 if [ -d "$PREFIX/etc/tor" ];
 then
-grep -qF -- 'tor' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 tor'  >> .bashrc
+grep -qF -- '-t pac:0 tor' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 tor'  >> .bashrc
 fi
 ;;
 7)
@@ -375,7 +375,7 @@ cd $PREFIX/etc
 rm -R tor*
 apt autoremove -y tor
 pkg clean
-sed -i '/tor/d' ~/.bashrc
+sed -i '/-t pac:0 tor/d' ~/.bashrc
 ;;
 8)
 killall mc
