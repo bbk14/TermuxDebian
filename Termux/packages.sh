@@ -236,7 +236,8 @@ fi
 ;;
 6)
 #install Tor proxy
-pkg install -f tor openssl -y
+pkg install openssl -y
+pkg install -f tor -y
 pkg clean
 if [ -d "$PREFIX/etc/tor" ];
 then
