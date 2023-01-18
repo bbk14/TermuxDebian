@@ -236,7 +236,7 @@ fi
 ;;
 6)
 #install Tor proxy
-pkg update && pkg install -y tor
+pkg install -f tor openssl -y
 pkg clean
 if [ -d "$PREFIX/etc/tor" ];
 then
@@ -245,12 +245,16 @@ fi
 ;;
 7)
 #install Midnight Commander
-pkg install -y mc
+pkg install mc -y
 pkg clean
+if [ -d "$PREFIX/etc/mc" ];
+then
+grep -qF -- 'alias mc="mc --nosubshell"' '.bashrc' || echo 'alias mc="mc --nosubshell"'  >> .bashrc
+fi
 ;;
 8)
 #install Vifm
-pkg install -y vifm
+pkg install vifm -y
 pkg clean
 ;;
 esac
@@ -379,11 +383,16 @@ sed -i '/-t pac:0 tor/d' ~/.bashrc
 ;;
 8)
 killall mc
+cd $PREFIX/etc
+rm -R mc*
 apt autoremove -y mc
 pkg clean
+sed -i '/alias mc="mc --nosubshell"/d' ~/.bashrc
 ;;
 9)
 killall vifm
+cd $PREFIX/etc
+rm -R vifm*
 apt autoremove vifm -y
 pkg clean
 ;;
