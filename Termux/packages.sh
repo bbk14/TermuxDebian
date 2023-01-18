@@ -238,6 +238,10 @@ fi
 #install Tor proxy
 pkg update && pkg install -y tor
 pkg clean
+if [ -d "$PREFIX/etc/tor" ];
+then
+grep -qF -- 'tor' '.bashrc' || echo 'tmux split-window -v -p 100 -t pac:0 tor'  >> .bashrc
+fi
 ;;
 7)
 #install Midnight Commander
@@ -367,8 +371,11 @@ sed -i '/torrserver/d' ~/.bashrc
 ;;
 7)
 killall tor
+cd $PREFIX/etc
+rm -R tor*
 apt autoremove -y tor
 pkg clean
+sed -i '/tor/d' ~/.bashrc
 ;;
 8)
 killall mc
