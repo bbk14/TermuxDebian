@@ -30,16 +30,21 @@ ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/debi
 #add scripts to autorun in Termux when it open
 cat <<EOF>> pac.sh
 bash note.sh
-bash packages.sh
+read -p ""
 EOF
 chmod 755 pac.sh
+cat <<\EOF>> pac2.sh
+read -p $'\e[31mPackages that runs:\e[0m'
+EOF
+chmod 755 pac2.sh
 cat <<\EOF>> .bashrc
 pkg clean
 bash tmux_off.sh
 bash updater.sh
 tmux new-session -d -s pac bash pac.sh
 tmux select-layout -t pac tiled
-tmux split-window -h -p 70 -t pac:0 htop
+tmux split-window -h -p 75 -t pac:0 bash pac2.sh
+tmux split-window -v -p 100 -t pac:0 htop
 bash note.sh
 bash packages.sh
 EOF
