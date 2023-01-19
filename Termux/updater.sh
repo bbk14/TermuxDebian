@@ -1,17 +1,18 @@
 #!/bin/bash
-notecheck=$(curl --head --silent https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh | head -n 1)
-packagescheck=$(curl --head --silent https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh | head -n 1)
-note=$(if echo "$notecheck" | grep -q 200 ; then curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh ; fi)
-packages=$(if echo "$packagescheck" | grep -q 200 ; then curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh ; fi)
-google=$(curl -I --head --silent https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh | head -n 1)
+note=$(curl --head --silent https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh | head -n 1)
+packages=$(curl --head --silent https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh | head -n 1)
 
-if echo "$google" | grep -q 200
+
+if echo "$note" | grep -q 200
 then
-echo "Update"
-echo ""
-$note
-$packages
+curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh
 else
-echo "No internet connection"
-echo ""
+echo "No"
+fi
+
+if echo "$packages" | grep -q 200
+then
+curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh
+else
+echo "internet connection"
 fi
