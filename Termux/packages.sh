@@ -415,9 +415,11 @@ ${PURPLE}*configuration apply immediately and autorestart after  changes ${GREEN
 ;;
 esac
 #apply changes
+sed -i '/-t pac:0 htop/d' .bashrc
 sed -i '/bash note.sh/d' .bashrc
 sed -i '/bash packages.sh/d' .bashrc
 cat <<EOF>> .bashrc
+tmux split-window -v -p 100 -t pac:0 htop
 bash note.sh
 bash packages.sh
 EOF
