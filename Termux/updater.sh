@@ -7,12 +7,14 @@ if echo "$note" | grep -q 200
 then
 curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh
 else
-echo "No"
+echo "Error update"
+echo ""
 fi
 
 if echo "$packages" | grep -q 200
 then
 curl -s -J -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/packages.sh
 else
-echo "internet connection"
+echo "No internet connection"
+echo ""
 fi
