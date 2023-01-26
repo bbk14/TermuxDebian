@@ -4,12 +4,16 @@ GREEN='\033[1;32m'
 #install packages in Termux
 pkg install tmux htop proot-distro -y
 
-curl -LO https://github.com/termux/proot-distro/releases/download/v3.3.0/debian-arm-pd-v3.3.0.tar.xz
-chmod +rx debian-arm-pd-v3.3.0.tar.xz
 rm -rf $PREFIX/var/lib/proot-distro/installed-rootfs/debian
 mkdir -p $PREFIX/var/lib/proot-distro/installed-rootfs/debian
+cd $PREFIX/var/lib/proot-distro/installed-rootfs/debian
+curl -LO https://github.com/termux/proot-distro/releases/download/v3.3.0/debian-arm-pd-v3.3.0.tar.xz
+chmod +rx debian-arm-pd-v3.3.0.tar.xz
+tar -xf debian-arm-pd-v3.3.0.tar.xz
+rm debian-arm-pd-v3.3.0.tar.xz
 chmod -R 777 $PREFIX/var/lib/proot-distro/installed-rootfs/debian
-proot --link2symlink tar --exclude='dev' -C $PREFIX/var/lib/proot-distro/installed-rootfs/debian --strip-components=1 -xf debian-arm-pd-v3.3.0.tar.xz
+proot --link2symlink --exclude='dev' -C $PREFIX/var/lib/proot-distro/installed-rootfs/debian --strip-components=1
+cd $HOME
 
 #download scripts in Termux
 curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh
