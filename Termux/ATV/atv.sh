@@ -8,6 +8,8 @@ tar -zxf termux.tar.gz -C /data/data/com.termux/files --recursive-unlink --prese
 curl -O https://www.dropbox.com/s/qezfhj2iu4ynnr2/debian.tar.gz
 proot-distro restore debian.tar.xz
 #clean cache Termux
+rm termux.tar.gz
+rm debian.tar.xz
 pkg clean
 #Done
 echo ""
