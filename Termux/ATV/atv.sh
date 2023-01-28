@@ -2,6 +2,7 @@
 RED='\033[1;31m'
 GREEN='\033[1;32m'
 termux-setup-storage
+wait $!
 #install backup Termux
 curl -s https://www.dropbox.com/s/5ie7s3f4cm1g3ag/termux.tar.gz --output /sdcard/termux.tar.gz
 tar -zxf /sdcard/termux.tar.gz -C /data/data/com.termux/files --recursive-unlink --preserve-permissions
