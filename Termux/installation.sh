@@ -2,7 +2,7 @@
 RED='\033[1;31m'
 GREEN='\033[1;32m'
 #install packages in Termux
-pkg install tmux htop proot-distro -y
+pkg install tmux proot-distro -y
 proot-distro install debian
 #download scripts in Termux
 curl -s -O https://raw.githubusercontent.com/bbk14/TermuxDebian/main/Termux/note.sh
@@ -33,18 +33,14 @@ bash note.sh
 read -p ""
 EOF
 chmod 755 pac.sh
-cat <<\EOF>> pac2.sh
-read -p $'\e[31mPackages that runs:\e[0m'
-EOF
-chmod 755 pac2.sh
 cat <<\EOF>> .bashrc
 pkg clean
 bash tmux_off.sh
 bash updater.sh
 tmux new-session -d -s pac bash pac.sh
 tmux select-layout -t pac tiled
-tmux split-window -h -p 75 -t pac:0 bash pac2.sh
-tmux split-window -v -p 100 -t pac:0 htop
+tmux split-window -h -p 75 -t pac:0 nano pac.sh
+killall nano
 bash note.sh
 bash packages.sh
 EOF
