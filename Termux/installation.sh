@@ -16,7 +16,9 @@ chmod 755 updater.sh
 #start Debian
 proot-distro login debian
 #install packages in Debian
-apt-get update && apt-get install -y wget libicu67
+apt-get update
+apt-get install -y libicu67
+apt-get install -y wget
 #clean packages cache Debian
 apt-get clean
 cd /home
