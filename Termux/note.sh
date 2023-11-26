@@ -75,8 +75,8 @@ echo -e " ${YELLOW}cd \$HOME/debian/ && vifm"
 fi
 #command list
 echo ""
-echo -e "${BLUE}connect to packages that runs in background Tmux:"
-echo -e " ${YELLOW}tmux list-sessions"
+echo -e "${BLUE}connect to last packages that runs in background Tmux:"
+echo -e " ${YELLOW}tmux a"
 echo ""
 echo -e "${BLUE}list packages when you in Tmux:"
 echo -e " ${YELLOW}Ctrl+B+S  then arrows"
