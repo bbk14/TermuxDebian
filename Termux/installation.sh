@@ -30,16 +30,10 @@ chmod 755 -R /home/config
 exit
 ln -s /data/data/com.termux/files/usr/var/lib/proot-distro/installed-rootfs/debian/ debian
 #add scripts to autorun in Termux when it open
-cat <<EOF>> pac.sh
-bash note.sh
-read -p ""
-EOF
-chmod 755 pac.sh
 cat <<\EOF>> .bashrc
 pkg clean
 bash tmux_off.sh
 bash updater.sh
-tmux new-session -d -s pac bash pac.sh
 bash note.sh
 bash packages.sh
 EOF
