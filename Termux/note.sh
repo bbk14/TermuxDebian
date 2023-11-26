@@ -76,7 +76,7 @@ fi
 #command list
 echo ""
 echo -e "${BLUE}connect to packages that runs in background Tmux:"
-echo -e " ${YELLOW}tmux attach -t pac"
+echo -e " ${YELLOW}tmux list-sessions"
 echo ""
 echo -e "${BLUE}list packages when you in Tmux:"
 echo -e " ${YELLOW}Ctrl+B+S  then arrows"
