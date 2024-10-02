@@ -1,7 +1,7 @@
 # TermuxDebian
-<b>For home media on your:</b> smartphone, tablet, tv-box
+<b>For home media on your:</b> smartphone, tablet, tv-box aosp
 <br><b>Supports:</b> Android 32-bit & 64-bit
-<br><b>Note:</b> Android TV (ATV) not support yet 
+<br><b>Note:</b> Android TV (ATV) not support! 
 <br>About <a href="https://wiki.termux.com/wiki/Main_Page" target="_blank">Termux</a>
 # Installation
 Download Termux from <a href="https://github.com/termux/termux-app/releases" target="_blank">GitHub official</a>  or  <a href="https://f-droid.org/ru/packages/com.termux/" target="_blank">F-Droid</a>
@@ -22,13 +22,6 @@ Download Termux from <a href="https://github.com/termux/termux-app/releases" tar
 <br> After installation <b>restart Termux</b> <br>
 <br>
 
-# Support me:
-
-<a href="https://www.buymeacoffee.com/bbk14" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
-<br>
-
-
-<img src="https://github.com/bbk14/TermuxDebian/blob/main/Termux/img/note.jpg" height="500" weight="350" style="max-height: 50%;">
 
 # What inside:
 <b>( All rights to programs, scripts and packages belong to their respective owners )</b>
